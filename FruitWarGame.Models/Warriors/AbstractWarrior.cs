@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Linq;
+    using Contracts.Essential;
     using Contracts.Fruits;
     using Contracts.Warriors;
 
@@ -20,6 +21,9 @@
         protected int SpeedPoints { get; }
 
         protected int PowerPoints { get; }
+
+        //TODO figure out how to initialize this
+        public IPosition CurrentPosition { get; }
 
         public int TotalSpeedPoints
         {
