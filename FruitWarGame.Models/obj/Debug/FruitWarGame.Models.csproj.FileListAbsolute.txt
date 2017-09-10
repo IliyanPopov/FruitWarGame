@@ -1,0 +1,2 @@
+C:\Users\Gabriel\Documents\Visual Studio 2017\Projects\FruitWarGame\FruitWarGame.Models\obj\Debug\FruitWarGame.Models.csprojResolveAssemblyReference.cache
+C:\Users\Gabriel\Documents\Visual Studio 2017\Projects\FruitWarGame\FruitWarGame.Models\obj\Debug\FruitWarGame.Models.csproj.CoreCompileInputs.cache

@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>23b12b45-5f1b-42f0-8532-eed59c8adc81</ProjectGuid>
+    <ProjectGuid>{23B12B45-5F1B-42F0-8532-EED59C8ADC81}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>FruitWarGame.Models</RootNamespace>
@@ -30,24 +30,39 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System"/>
-    
-    <Reference Include="System.Core"/>
-    <Reference Include="System.Xml.Linq"/>
-    <Reference Include="System.Data.DataSetExtensions"/>
-    
-    
-    <Reference Include="Microsoft.CSharp"/>
-    
-    <Reference Include="System.Data"/>
-    
-    <Reference Include="System.Net.Http"/>
-    
-    <Reference Include="System.Xml"/>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Contracts\Essential\IGameGrid.cs" />
+    <Compile Include="Contracts\Essential\IPosition.cs" />
+    <Compile Include="Contracts\IBonusPowerPointsProvider.cs" />
+    <Compile Include="Contracts\IBonusSpeedPointsProvider.cs" />
+    <Compile Include="Contracts\IWarrior.cs" />
+    <Compile Include="Essential\GameGrid.cs" />
+    <Compile Include="Essential\Position.cs" />
+    <Compile Include="Fruits\Apple.cs" />
+    <Compile Include="Fruits\Pear.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Warriors\AbstractWarrior.cs" />
+    <Compile Include="Warriors\Monkey.cs" />
+    <Compile Include="Warriors\Pigeon.cs" />
+    <Compile Include="Warriors\Turtle.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FruitWarGame.Common\FruitWarGame.Common.csproj">
+      <Project>{9a7229b8-b2ed-4422-b12e-19d14ec4c72f}</Project>
+      <Name>FruitWarGame.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Factories\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
- </Project>
+</Project>

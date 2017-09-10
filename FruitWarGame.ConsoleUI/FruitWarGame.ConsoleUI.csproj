@@ -42,11 +42,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="ConsoleIO\ConsoleClearer.cs" />
+    <Compile Include="ConsoleIO\ConsoleReader.cs" />
+    <Compile Include="ConsoleIO\ConsoleWriter.cs" />
+    <Compile Include="ConsoleIO\Contracts\IClearer.cs" />
+    <Compile Include="ConsoleIO\Contracts\IReader.cs" />
+    <Compile Include="ConsoleIO\Contracts\IWriter.cs" />
+    <Compile Include="Contracts\IEngine.cs" />
+    <Compile Include="Startup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FruitWarGame.Common\FruitWarGame.Common.csproj">
+      <Project>{9a7229b8-b2ed-4422-b12e-19d14ec4c72f}</Project>
+      <Name>FruitWarGame.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FruitWarGame.Data\FruitWarGame.Data.csproj">
+      <Project>{0f6c8b33-7db7-4f30-9a87-a53c0bf6a841}</Project>
+      <Name>FruitWarGame.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FruitWarGame.Logic\FruitWarGame.Logic.csproj">
+      <Project>{52ed80f0-3e35-4d3e-af4a-4cba3f7bed69}</Project>
+      <Name>FruitWarGame.Logic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FruitWarGame.Models\FruitWarGame.Models.csproj">
+      <Project>{23b12b45-5f1b-42f0-8532-eed59c8adc81}</Project>
+      <Name>FruitWarGame.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

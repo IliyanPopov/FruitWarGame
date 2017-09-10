@@ -1,0 +1,1 @@
+C:\Users\Gabriel\Documents\Visual Studio 2017\Projects\FruitWarGame\FruitWarGame.Data\obj\Debug\FruitWarGame.Data.csproj.CoreCompileInputs.cache
