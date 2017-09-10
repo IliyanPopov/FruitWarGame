@@ -1,5 +1,7 @@
 ﻿namespace FruitWarGame.Models.Contracts.Essential
 {
+    using Warriors;
+
     public interface IGameGrid
     {
         int Rows { get; }

@@ -1,11 +1,20 @@
 ﻿namespace FruitWarGame.Models.Fruits
 {
-    using Contracts;
+    using Contracts.Fruits;
 
-    public class Pear : IBonusSpeedPointsProvider
+    public class Pear : IFruit
     {
-        private const int SpeedPointBonusValue = 1;
+        private const int PearPowerPointBonusValue = 0;
+        private const int PearSpeedPointBonusValue = 1;
 
-        public int SpeedPointsBonus => SpeedPointBonusValue;
+        public Pear(char fruitSymbol)
+        {
+            this.Symbol = fruitSymbol;
+        }
+
+        public int PowerPointsBonus => PearPowerPointBonusValue;
+
+        public int SpeedPointsBonus => PearSpeedPointBonusValue;
+        public char Symbol { get; }
     }
 }

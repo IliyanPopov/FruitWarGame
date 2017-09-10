@@ -2,33 +2,41 @@
 {
     using System.Collections.Generic;
     using System.Linq;
-    using Contracts;
+    using Contracts.Fruits;
+    using Contracts.Warriors;
 
     public abstract class AbstractWarrior : IWarrior
     {
-        public IEnumerable<IBonusPowerPointsProvider> BonusToPowerPointsProviders;
+        private readonly ICollection<IFruit> _eatenFruits;
 
-        public IEnumerable<IBonusSpeedPointsProvider> BonusToSpeedPointsProviders;
 
         protected AbstractWarrior(int speedPoints, int powerPoints)
         {
             this.SpeedPoints = speedPoints;
             this.PowerPoints = powerPoints;
-            this.BonusToSpeedPointsProviders = new List<IBonusSpeedPointsProvider>();
-            this.BonusToPowerPointsProviders = new List<IBonusPowerPointsProvider>();
+            this._eatenFruits = new List<IFruit>();
         }
 
         protected int SpeedPoints { get; }
+
         protected int PowerPoints { get; }
 
         public int TotalSpeedPoints
         {
-            get { return this.SpeedPoints + this.BonusToSpeedPointsProviders.Sum(b => b.SpeedPointsBonus); }
+            get { return this.SpeedPoints + this._eatenFruits.Sum(b => b.SpeedPointsBonus); }
         }
 
         public int TotalPowerPoints
         {
-            get { return this.PowerPoints + this.BonusToPowerPointsProviders.Sum(b => b.PowerPointsBonus); }
+            get { return this.PowerPoints + this._eatenFruits.Sum(b => b.PowerPointsBonus); }
+        }
+
+        public void EatFruit(IFruit fruit)
+        {
+            if (fruit != null)
+            {
+                this._eatenFruits.Add(fruit);
+            }
         }
     }
 }

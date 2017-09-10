@@ -40,13 +40,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\Essential\IFruit.cs" />
     <Compile Include="Contracts\Essential\IGameGrid.cs" />
     <Compile Include="Contracts\Essential\IPosition.cs" />
     <Compile Include="Contracts\IBonusPowerPointsProvider.cs" />
     <Compile Include="Contracts\IBonusSpeedPointsProvider.cs" />
+    <Compile Include="Contracts\ISymbol.cs" />
     <Compile Include="Contracts\IWarrior.cs" />
     <Compile Include="Essential\GameGrid.cs" />
     <Compile Include="Essential\Position.cs" />
+    <Compile Include="Factories\FruitFactory.cs" />
+    <Compile Include="Factories\WarriorFactory.cs" />
     <Compile Include="Fruits\Apple.cs" />
     <Compile Include="Fruits\Pear.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -61,8 +65,6 @@
       <Name>FruitWarGame.Common</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Factories\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

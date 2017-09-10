@@ -1,1 +1,12 @@
 C:\Users\Gabriel\Documents\Visual Studio 2017\Projects\FruitWarGame\FruitWarGame.Logic\obj\Debug\FruitWarGame.Logic.csproj.CoreCompileInputs.cache
+C:\Users\Gabriel\Documents\Visual Studio 2017\Projects\FruitWarGame\FruitWarGame.Logic\bin\Debug\FruitWarGame.Logic.dll
+C:\Users\Gabriel\Documents\Visual Studio 2017\Projects\FruitWarGame\FruitWarGame.Logic\bin\Debug\FruitWarGame.Logic.pdb
+C:\Users\Gabriel\Documents\Visual Studio 2017\Projects\FruitWarGame\FruitWarGame.Logic\bin\Debug\FruitWarGame.Common.dll
+C:\Users\Gabriel\Documents\Visual Studio 2017\Projects\FruitWarGame\FruitWarGame.Logic\bin\Debug\FruitWarGame.Data.dll
+C:\Users\Gabriel\Documents\Visual Studio 2017\Projects\FruitWarGame\FruitWarGame.Logic\bin\Debug\FruitWarGame.Models.dll
+C:\Users\Gabriel\Documents\Visual Studio 2017\Projects\FruitWarGame\FruitWarGame.Logic\bin\Debug\FruitWarGame.Common.pdb
+C:\Users\Gabriel\Documents\Visual Studio 2017\Projects\FruitWarGame\FruitWarGame.Logic\bin\Debug\FruitWarGame.Data.pdb
+C:\Users\Gabriel\Documents\Visual Studio 2017\Projects\FruitWarGame\FruitWarGame.Logic\bin\Debug\FruitWarGame.Models.pdb
+C:\Users\Gabriel\Documents\Visual Studio 2017\Projects\FruitWarGame\FruitWarGame.Logic\obj\Debug\FruitWarGame.Logic.csprojResolveAssemblyReference.cache
+C:\Users\Gabriel\Documents\Visual Studio 2017\Projects\FruitWarGame\FruitWarGame.Logic\obj\Debug\FruitWarGame.Logic.dll
+C:\Users\Gabriel\Documents\Visual Studio 2017\Projects\FruitWarGame\FruitWarGame.Logic\obj\Debug\FruitWarGame.Logic.pdb

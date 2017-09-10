@@ -1,4 +1,4 @@
-﻿namespace FruitWarGame.Models.Contracts
+﻿namespace FruitWarGame.Models.Contracts.Warriors
 {
     public interface IWarrior
     { 

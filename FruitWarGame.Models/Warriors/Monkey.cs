@@ -1,6 +1,7 @@
 ﻿namespace FruitWarGame.Models.Warriors
 {
     using Contracts;
+    using Contracts.Warriors;
 
     public class Monkey : AbstractWarrior, IWarrior, ISymbol
     {

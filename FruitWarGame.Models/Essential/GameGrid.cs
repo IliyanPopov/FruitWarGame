@@ -1,8 +1,8 @@
 ﻿namespace FruitWarGame.Models.Essential
 {
     using System;
-    using Contracts;
     using Contracts.Essential;
+    using Contracts.Warriors;
 
     public class GameGrid : IGameGrid
     {
@@ -49,13 +49,13 @@
             this._grid[row, col] = value;
         }
 
-        private void ValidateCell(int row, int col)
+        private static void ValidateCell(int row, int col)
         {
             if (row < 0 || row > GameGridRowsCount - 1)
             {
                 throw new IndexOutOfRangeException($"Invalid row: {row}");
             }
-            else if (col < 0 || col > GameGridColsCount - 1)
+            if (col < 0 || col > GameGridColsCount - 1)
             {
                 throw new IndexOutOfRangeException($"Invalid col: {col}");
             }
