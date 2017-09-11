@@ -18,14 +18,15 @@
             this._grid = new char[rows, cols];
         }
 
-        public int Rows { get; private set; }
+        public int Rows { get; }
 
-        public int Cols { get; private set; }
+        public int Cols { get; }
 
         public void PlaceWarrior(IWarrior warrior)
         {
-            //int shipRow = ship.TopLeft.CurrentRow;
+            //int warriorRow = warrior.
             //int shipCol = ship.TopLeft.CurrentCol;
+            //  this._grid[shipRow, shipCol] = ship.Image;
         }
 
         public char GetCell(IPosition position)

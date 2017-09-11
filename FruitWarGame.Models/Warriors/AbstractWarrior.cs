@@ -2,11 +2,12 @@
 {
     using System.Collections.Generic;
     using System.Linq;
+    using Contracts;
     using Contracts.Essential;
     using Contracts.Fruits;
     using Contracts.Warriors;
 
-    public abstract class AbstractWarrior : IWarrior
+    public abstract class AbstractWarrior : IWarrior, ISymbol
     {
         private readonly ICollection<IFruit> _eatenFruits;
 
@@ -20,6 +21,8 @@
         protected int SpeedPoints { get; }
 
         protected int PowerPoints { get; }
+
+        public char PlayerSymbol { get; protected set; }
 
         //TODO figure out how to initialize this
         public IPosition CurrentPosition { get; }

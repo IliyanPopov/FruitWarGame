@@ -3,7 +3,7 @@
     using Contracts;
     using Contracts.Warriors;
 
-    public class Turtle : AbstractWarrior, IWarrior, ISymbol
+    public class Turtle : AbstractWarrior, IWarrior
     {
         private const int InitialSpeedPoints = 1;
         private const int InitialPowerPoints = 3;
@@ -12,7 +12,5 @@
         {
             this.PlayerSymbol = playerSymbol;
         }
-
-        public char PlayerSymbol { get; }
     }
 }
