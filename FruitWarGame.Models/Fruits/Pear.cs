@@ -16,6 +16,9 @@
         public int PowerPointsBonus => PearPowerPointBonusValue;
 
         public int SpeedPointsBonus => PearSpeedPointBonusValue;
+
         public char Symbol { get; }
+
+        public bool IsEaten { get; }
     }
 }

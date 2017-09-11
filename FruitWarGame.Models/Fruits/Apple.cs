@@ -17,5 +17,6 @@
 
         public int SpeedPointsBonus => AppleSpeedPointBonusValue;
         public char Symbol { get; }
+        public bool IsEaten { get; }
     }
 }

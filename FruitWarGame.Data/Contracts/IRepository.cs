@@ -8,12 +8,12 @@ namespace FruitWarGame.Data.Contracts
 {
     using Models.Contracts.Warriors;
 
-    public interface IRepository
+    public interface IRepository<T> where T : class
     {
-        void AddPlayer(IWarrior player);
+        void Add(T entity);
 
-        IWarrior GetPlayerBySymbol(char symbol);
+        T GetBySymbol(char symbol);
 
-        ICollection<IWarrior> GetAll();
+        ICollection<T> GetAll();
     }
 }

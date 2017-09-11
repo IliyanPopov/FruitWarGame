@@ -6,21 +6,21 @@
     using Contracts;
     using Models.Contracts.Warriors;
 
-    public class InMemoryRepository : IRepository
+    public class InMemoryPlayerRepository : IRepository<IWarrior>
     {
         private readonly HashSet<IWarrior> _players;
 
-        public InMemoryRepository()
+        public InMemoryPlayerRepository()
         {
             this._players = new HashSet<IWarrior>();
         }
 
-        public void AddPlayer(IWarrior player)
+        public void Add(IWarrior player)
         {
             this._players.Add(player);
         }
 
-        public IWarrior GetPlayerBySymbol(char symbol)
+        public IWarrior GetBySymbol(char symbol)
         {
             var warrior = this._players.FirstOrDefault(w => w.PlayerSymbol == symbol);
 

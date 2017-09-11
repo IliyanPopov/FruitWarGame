@@ -3,5 +3,7 @@
     public interface IFruit : IBonusPowerPointsProvider, IBonusSpeedPointsProvider
     {
         char Symbol { get; }
+
+        bool IsEaten { get; }
     }
 }
