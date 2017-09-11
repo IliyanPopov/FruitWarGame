@@ -10,7 +10,6 @@
     {
         private readonly ICollection<IFruit> _eatenFruits;
 
-
         protected AbstractWarrior(int speedPoints, int powerPoints)
         {
             this.SpeedPoints = speedPoints;

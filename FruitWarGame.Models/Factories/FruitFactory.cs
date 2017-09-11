@@ -11,10 +11,10 @@
             switch (fruitSymbol)
             {
                 case 'A':
-                    IFruit apple = new Apple(fruitSymbol);
+                    IFruit apple = new Apple();
                     return apple;
                 case 'P':
-                    IFruit pear = new Pear(fruitSymbol);
+                    IFruit pear = new Pear();
                     return pear;
 
                 default:

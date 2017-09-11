@@ -4,12 +4,13 @@
 
     public class Pear : IFruit
     {
+        private const char PearSymbol = 'P';
         private const int PearPowerPointBonusValue = 0;
         private const int PearSpeedPointBonusValue = 1;
 
-        public Pear(char fruitSymbol)
+        public Pear()
         {
-            this.Symbol = fruitSymbol;
+            this.Symbol = PearSymbol;
         }
 
         public int PowerPointsBonus => PearPowerPointBonusValue;
