@@ -6,11 +6,11 @@
     using Contracts;
     using Models.Contracts.Warriors;
 
-    public class InMemoryWarriorRepository : IInMemoryWarriorRepository
+    public class WarriorRepository : IWarriorRepository
     {
         private readonly HashSet<IWarrior> _warriors;
 
-        public InMemoryWarriorRepository()
+        public WarriorRepository()
         {
             this._warriors = new HashSet<IWarrior>();
         }
@@ -32,7 +32,7 @@
             throw new ArgumentException($"Player with symbol: {symbol} does not exist!");
         }
 
-        IQueryable<IWarrior> IInMemoryWarriorRepository.GetAll()
+        IQueryable<IWarrior> IWarriorRepository.GetAll()
         {
             return this._warriors.AsQueryable();
         }

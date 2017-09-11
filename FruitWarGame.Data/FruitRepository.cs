@@ -6,11 +6,11 @@
     using Contracts;
     using Models.Contracts.Fruits;
 
-    public class InMemoryFruitRepository : IInMemoryFruitRepository
+    public class FruitRepository : IFruitRepository
     {
         private readonly HashSet<IFruit> _fruitsPlacedOnGameBoard;
 
-        public InMemoryFruitRepository()
+        public FruitRepository()
         {
             this._fruitsPlacedOnGameBoard = new HashSet<IFruit>();
         }
@@ -32,7 +32,7 @@
             throw new ArgumentException($"No fruit with such a symbol: {symbol} is placed on the game board!");
         }
 
-        IQueryable<IFruit> IInMemoryFruitRepository.GetAll()
+        IQueryable<IFruit> IFruitRepository.GetAll()
         {
             return this._fruitsPlacedOnGameBoard.AsQueryable();
         }

@@ -3,7 +3,7 @@
     using System.Linq;
     using Models.Contracts.Warriors;
 
-    public interface IInMemoryWarriorRepository
+    public interface IWarriorRepository
     {
         void AddWarrior(IWarrior warrior);
 

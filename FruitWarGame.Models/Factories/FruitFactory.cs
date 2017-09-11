@@ -1,10 +1,11 @@
 ﻿namespace FruitWarGame.Models.Factories
 {
     using System;
+    using Contracts.Factories;
     using Contracts.Fruits;
     using Fruits;
 
-    public class FruitFactory
+    public class FruitFactory : IFruitFactory
     {
         public IFruit CreateFruit(char fruitSymbol)
         {

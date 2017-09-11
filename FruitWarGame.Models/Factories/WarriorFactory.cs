@@ -4,7 +4,7 @@
     using Contracts.Warriors;
     using Warriors;
 
-    public class WarriorFactory
+    public class WarriorFactory : IWarriorFactory
     {
         public IWarrior CreateWarrior(char playerSymbol, int warriorType)
         {

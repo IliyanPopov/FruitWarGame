@@ -4,7 +4,7 @@
     using System.Linq;
     using Models.Contracts.Fruits;
 
-    public interface IInMemoryFruitRepository
+    public interface IFruitRepository
     {
         void AddFruit(IFruit fruit);
 
