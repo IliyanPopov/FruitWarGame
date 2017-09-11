@@ -1,5 +1,6 @@
 ﻿namespace FruitWarGame.Models.Fruits
 {
+    using Contracts.Essential;
     using Contracts.Fruits;
 
     public class Pear : IFruit
@@ -8,9 +9,10 @@
         private const int PearPowerPointBonusValue = 0;
         private const int PearSpeedPointBonusValue = 1;
 
-        public Pear()
+        public Pear(IPosition position)
         {
             this.Symbol = PearSymbol;
+            this.CurrentPosition = position;
         }
 
         public int PowerPointsBonus => PearPowerPointBonusValue;
@@ -20,5 +22,7 @@
         public char Symbol { get; }
 
         public bool IsEaten { get; }
+
+        public IPosition CurrentPosition { get; set; }
     }
 }

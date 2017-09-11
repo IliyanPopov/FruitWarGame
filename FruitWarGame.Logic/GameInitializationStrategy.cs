@@ -1,26 +1,29 @@
 ﻿namespace FruitWarGame.Logic
 {
     using System;
+    using Common;
     using Data.Contracts;
     using Models.Contracts.Essential;
     using Models.Contracts.Factories;
+    using Models.Contracts.Fruits;
+    using Models.Essential;
 
     public class GameInitializationStrategy
     {
-        private IGameGrid _grid;
-        private IFruitFactory _fruitFactory;
-        private IFruitRepository _fruitRepository;
-        private IWarriorFactory _warriorFactory;
-        private IWarriorRepository _warriorRepository;
-        private static readonly Random _random = new Random();
-        private static readonly object _syncLock = new object();
-
         private const char GridDefaultSymbol = '-';
         private const int InitialApplesCount = 4;
         private const int InitialPearsCount = 3;
+        private static readonly Random Random = new Random();
+        private static readonly object SyncLock = new object();
+        private readonly IFruitFactory _fruitFactory;
+        private readonly IFruitRepository _fruitRepository;
+        private readonly IGameGrid _grid;
+        private IWarriorFactory _warriorFactory;
+        private IWarriorRepository _warriorRepository;
 
 
-        public GameInitializationStrategy(IGameGrid gamegrid, IWarriorRepository warriorRepository, IFruitRepository fruitRepository, IWarriorFactory warriorFactory, IFruitFactory fruitFactory)
+        public GameInitializationStrategy(IGameGrid gamegrid, IWarriorRepository warriorRepository,
+            IFruitRepository fruitRepository, IWarriorFactory warriorFactory, IFruitFactory fruitFactory)
         {
             this._grid = gamegrid;
             this._warriorRepository = warriorRepository;
@@ -31,8 +34,41 @@
 
         public void Initialize()
         {
-            this.InitializeGrid(GridDefaultSymbol);
-            this.AddWarriors();
+            InitializeGrid(GridDefaultSymbol);
+            CreateFruits();
+            AddFruitsToGrid();
+        }
+
+        private void CreateFruits()
+        {
+            for (int i = 0; i < InitialApplesCount; i++)
+            {
+                var apple = this._fruitFactory.CreateFruit(GlobalConstants.AppleSymbol);
+                this._fruitRepository.AddFruit(apple);
+            }
+
+            for (int i = 0; i < InitialPearsCount; i++)
+            {
+                var pear = this._fruitFactory.CreateFruit(GlobalConstants.PearSymbol);
+                this._fruitRepository.AddFruit(pear);
+            }
+        }
+
+        private void AddFruitsToGrid()
+        {
+            foreach (var fruit in this._fruitRepository)
+            {
+                while (this.ValidateFruitSpawnPosition(fruit))
+                {
+                    fruit.CurrentPosition = GetRandomPositionInGrid();
+                }
+            }
+        }
+
+        private bool ValidateFruitSpawnPosition(IFruit fruit)
+        {
+            // TODO This is next
+            throw new NotImplementedException();
         }
 
         private void InitializeGrid(char symbol)
@@ -46,12 +82,18 @@
             }
         }
 
-        private static int RandomNumber(int min, int max)
+        private IPosition GetRandomPositionInGrid()
         {
-            lock (_syncLock)
-            { // synchronize
-                return _random.Next(min, max);
+            int row;
+            int col;
+
+            lock (SyncLock)
+            {
+                row = Random.Next(0, this._grid.Rows);
+                col = Random.Next(0, this._grid.Cols);
             }
+
+            return new Position(row, col);
         }
     }
 }

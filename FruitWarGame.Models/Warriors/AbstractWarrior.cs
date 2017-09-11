@@ -7,7 +7,7 @@
     using Contracts.Fruits;
     using Contracts.Warriors;
 
-    public abstract class AbstractWarrior : IWarrior, ISymbol
+    public abstract class AbstractWarrior : IWarrior
     {
         private readonly ICollection<IFruit> _eatenFruits;
 

@@ -1,17 +1,16 @@
 ﻿namespace FruitWarGame.Models.Essential
 {
     using System;
+    using Common;
     using Contracts.Essential;
     using Contracts.Warriors;
 
     public class GameGrid : IGameGrid
     {
-        private const int GameGridRowsCount = 5;
-        private const int GameGridColsCount = 5;
 
         private readonly char[,] _grid;
 
-        public GameGrid(int rows = GameGridRowsCount, int cols = GameGridColsCount)
+        public GameGrid(int rows = GlobalConstants.GameGridRowsCount, int cols = GlobalConstants.GameGridColsCount)
         {
             this.Rows = rows;
             this.Cols = cols;
@@ -52,11 +51,11 @@
 
         private static void ValidateCell(int row, int col)
         {
-            if (row < 0 || row > GameGridRowsCount - 1)
+            if (row < 0 || row > GlobalConstants.GameGridRowsCount - 1)
             {
                 throw new IndexOutOfRangeException($"Invalid row: {row}");
             }
-            if (col < 0 || col > GameGridColsCount - 1)
+            if (col < 0 || col > GlobalConstants.GameGridRowsCount - 1)
             {
                 throw new IndexOutOfRangeException($"Invalid col: {col}");
             }

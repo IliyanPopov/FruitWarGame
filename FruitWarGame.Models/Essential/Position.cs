@@ -1,20 +1,18 @@
 ﻿namespace FruitWarGame.Models.Essential
 {
-    using System;
+    using Common;
     using Contracts.Essential;
 
     public struct Position : IPosition
     {
         private int _row;
         private int _col;
-        private readonly IGameGrid _grid;
 
-        public Position(IGameGrid grid, int row, int col)
+        public Position(int row, int col)
             : this()
         {
             this.CurrentRow = row;
             this.CurrentCol = col;
-            this._grid = grid;
         }
 
         public int CurrentRow
@@ -34,17 +32,20 @@
 
             set
             {
-                ValidateRow(value);
+                ValidateCol(value);
                 this._col = value;
             }
         }
 
-        private void ValidateRow(int row)
+
+        private void ValidateRow(int value)
         {
-            if (row < 0 || row > this._grid.Rows - 1)
-            {
-                throw new IndexOutOfRangeException($"Invalid row: {row}");
-            }
+            Validator.Validate(value, 0, GlobalConstants.GameGridRowsCount, "Invalid Row");
+        }
+
+        private void ValidateCol(int value)
+        {
+            Validator.Validate(value, 0, GlobalConstants.GameGridColsCount, "Invalid Col");
         }
     }
 }

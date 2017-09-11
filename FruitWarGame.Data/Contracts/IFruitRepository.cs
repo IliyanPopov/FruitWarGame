@@ -1,10 +1,11 @@
 ﻿namespace FruitWarGame.Data.Contracts
 {
+    using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
     using Models.Contracts.Fruits;
 
-    public interface IFruitRepository
+    public interface IFruitRepository : IEnumerable<IFruit>
     {
         void AddFruit(IFruit fruit);
 
