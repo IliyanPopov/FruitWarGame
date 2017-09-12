@@ -1,4 +1,4 @@
-﻿namespace FruitWarGame.ConsoleUI.Contracts
+﻿namespace FruitWarGame.Logic.Contracts
 {
     public interface IEngine
     {

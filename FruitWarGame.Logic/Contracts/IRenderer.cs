@@ -1,4 +1,4 @@
-﻿namespace FruitWarGame.ConsoleUI.ConsoleIO.Contracts
+﻿namespace FruitWarGame.Logic.Contracts
 {
     using Models.Contracts.Essential;
 

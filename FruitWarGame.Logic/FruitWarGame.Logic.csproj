@@ -40,7 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\IEngine.cs" />
     <Compile Include="Contracts\IGameInitializationStrategy.cs" />
+    <Compile Include="Contracts\IRenderer.cs" />
     <Compile Include="GameInitializationStrategy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

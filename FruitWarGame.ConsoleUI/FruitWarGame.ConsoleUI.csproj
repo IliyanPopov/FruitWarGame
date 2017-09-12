@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -45,16 +48,17 @@
     <Compile Include="ConsoleIO\ConsoleClearer.cs" />
     <Compile Include="ConsoleIO\ConsoleReader.cs" />
     <Compile Include="ConsoleIO\ConsoleWriter.cs" />
-    <Compile Include="ConsoleIO\Contracts\IClearer.cs" />
     <Compile Include="ConsoleIO\Contracts\IReader.cs" />
     <Compile Include="ConsoleIO\Contracts\IWriter.cs" />
-    <Compile Include="Contracts\IEngine.cs" />
+    <Compile Include="ConsoleRenderer.cs" />
     <Compile Include="Engine.cs" />
+    <Compile Include="IoC\FruitWarModule.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FruitWarGame.Common\FruitWarGame.Common.csproj">
@@ -73,6 +77,9 @@
       <Project>{23b12b45-5f1b-42f0-8532-eed59c8adc81}</Project>
       <Name>FruitWarGame.Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Contracts\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

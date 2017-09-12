@@ -3,7 +3,6 @@
     using System.Collections.Generic;
     using Common;
     using ConsoleIO.Contracts;
-    using Contracts;
     using Logic.Contracts;
 
     public class Engine : IEngine

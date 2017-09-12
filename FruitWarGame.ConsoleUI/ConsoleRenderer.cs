@@ -4,6 +4,7 @@
     using System.Text;
     using Common;
     using ConsoleIO.Contracts;
+    using Logic.Contracts;
     using Models.Contracts.Essential;
 
 
