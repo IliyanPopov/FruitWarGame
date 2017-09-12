@@ -21,6 +21,13 @@
 
         public int Cols { get; }
 
+        public char this[int yPosition, int xPosition]
+        {
+            get { return this._grid[yPosition, xPosition]; }
+
+            set { this._grid[yPosition, xPosition] = value; }
+        }
+
         public void PlaceWarrior(IWarrior warrior)
         {
             int warriorRow = warrior.CurrentPosition.Row;

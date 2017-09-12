@@ -9,6 +9,12 @@
 
         int Cols { get; }
 
+        char this[int yPosition, int xPosition]
+        {
+            get;
+            set;
+        }
+
         void PlaceWarrior(IWarrior warrior);
 
         void PlaceFruit(IFruit fruit);

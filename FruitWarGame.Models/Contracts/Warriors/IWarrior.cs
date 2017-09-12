@@ -2,7 +2,7 @@
 {
     using Essential;
 
-    public interface IWarrior
+    public interface IWarrior : IPosition
     {
         IPosition CurrentPosition { get; set; }
 

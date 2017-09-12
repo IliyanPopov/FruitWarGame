@@ -6,7 +6,6 @@
     using Data.Contracts;
     using Models.Contracts.Essential;
     using Models.Contracts.Factories;
-    using Models.Contracts.Fruits;
     using Models.Contracts.Warriors;
     using Models.Essential;
 
@@ -51,16 +50,13 @@
         {
             foreach (var warrior in this._warriorRepository)
             {
-                while (ValidateWarriorSpawnPosition(warrior))
+                while (ValidateSpawningPosition(warrior.CurrentPosition, GlobalConstants.TwoPositionsApartFromEatchother))
                 {
                     warrior.CurrentPosition = GetRandomPositionInGrid();
                 }
-            }
-        }
 
-        private bool ValidateWarriorSpawnPosition(IWarrior warrior)
-        {
-            throw new NotImplementedException();
+                this._grid.PlaceWarrior(warrior);
+            }
         }
 
         private void CreateWarriors(IDictionary<char, int> warriorTypes)
@@ -93,7 +89,7 @@
             {
                 fruit.CurrentPosition = GetRandomPositionInGrid();
 
-                while (ValidateSpawningPosition(fruit))
+                while (ValidateSpawningPosition(fruit.CurrentPosition, GlobalConstants.ThreePositionsApartFromEatchother))
                 {
                     fruit.CurrentPosition = GetRandomPositionInGrid();
                 }
@@ -102,35 +98,23 @@
             }
         }
 
-      
-        private bool ValidateSpawningPosition(object gameObject)
+        // Not tested yet
+        private bool ValidateSpawningPosition(IPosition entityPosition, int movesApartFromEachother)
         {
-            int positionX = 5;
-            int positionY = 5;
-
             int direction = 0; // The initial direction is "down"
             int stepsCount = 1; // Perform 1 step in current direction
             int stepPosition = 0; // 0 steps already performed
             int stepChange = 0; // Steps count changes after 2 steps
 
-            // for 1 position difference i  = 9
-            // for 2 position difference i  = 25
-            // for 3 position difference i  = 49
-            // for 4 position difference i  = 81
-
-            for (int i = 0; i < 25; i++)
+    
+            for (int i = 1; i < movesApartFromEachother; i++)
             {
-
-                // Fill the current cell with the current value
-                if (i == 0)
+                if (this._grid[entityPosition.Col, entityPosition.Row] == GlobalConstants.AppleSymbol ||
+                    this._grid[entityPosition.Col, entityPosition.Row] == GlobalConstants.PearSymbol)
                 {
-                    this._grid[positionY, positionX] = "Z";
+                    return false;
                 }
 
-                else
-                {
-                    matrix[positionY, positionX] = "X";
-                }
                 // Check for direction / step changes
                 if (stepPosition < stepsCount)
                 {
@@ -151,20 +135,23 @@
                 switch (direction)
                 {
                     case 0:
-                        positionY++;
+                        entityPosition.Col++;
                         break;
                     case 1:
-                        positionX--;
+                        entityPosition.Row--;
                         break;
                     case 2:
-                        positionY--;
+                        entityPosition.Col--;
                         break;
                     case 3:
-                        positionX++;
+                        entityPosition.Row++;
                         break;
                 }
             }
+
+            return true;
         }
+
         private void InitializeGrid(char symbol)
         {
             for (int row = 0; row < this._grid.Rows; row++)

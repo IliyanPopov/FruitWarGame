@@ -11,11 +11,11 @@
         public Position(int row, int col)
             : this()
         {
-            this.CurrentRow = row;
-            this.CurrentCol = col;
+            this.Row = row;
+            this.Col = col;
         }
 
-        public int CurrentRow
+        public int Row
         {
             get { return this._row; }
 
@@ -26,7 +26,7 @@
             }
         }
 
-        public int CurrentCol
+        public int Col
         {
             get { return this._col; }
 

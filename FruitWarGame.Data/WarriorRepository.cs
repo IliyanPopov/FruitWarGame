@@ -1,6 +1,7 @@
 ﻿namespace FruitWarGame.Data
 {
     using System;
+    using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
     using Contracts;
@@ -35,6 +36,16 @@
         IQueryable<IWarrior> IWarriorRepository.GetAll()
         {
             return this._warriors.AsQueryable();
+        }
+
+        public IEnumerator<IWarrior> GetEnumerator()
+        {
+            return this._warriors.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
         }
     }
 }

@@ -9,10 +9,9 @@
         private const int ApplePowerPointBonusValue = 1;
         private const int AppleSpeedPointBonusValue = 0;
 
-        public Apple(IPosition position)
+        public Apple()
         {
             this.Symbol = AppleSymbol;
-            this.CurrentPosition = position;
         }
 
         public int PowerPointsBonus => ApplePowerPointBonusValue;
