@@ -27,7 +27,7 @@
             {
                 for (int col = 0; col < this._grid.Cols; col++)
                 {
-                   this._gameScene.Append(this._grid.GetCell(row, col));
+                   this._gameScene.Append(this._grid.GetCell(row, col) + " ");
                 }
 
                 this._gameScene.Append(Environment.NewLine);

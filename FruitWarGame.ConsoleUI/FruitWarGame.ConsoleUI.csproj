@@ -45,7 +45,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConsoleIO\ConsoleClearer.cs" />
     <Compile Include="ConsoleIO\ConsoleReader.cs" />
     <Compile Include="ConsoleIO\ConsoleWriter.cs" />
     <Compile Include="ConsoleIO\Contracts\IReader.cs" />

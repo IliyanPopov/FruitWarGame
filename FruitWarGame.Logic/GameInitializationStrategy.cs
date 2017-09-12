@@ -7,9 +7,7 @@
     using Data.Contracts;
     using Models.Contracts.Essential;
     using Models.Contracts.Factories;
-    using Models.Contracts.Warriors;
     using Models.Essential;
-
 
     public class GameInitializationStrategy : IGameInitializationStrategy
     {
@@ -48,7 +46,10 @@
         {
             foreach (var warrior in this._warriorRepository)
             {
-                while (ValidateSpawningPosition(warrior.CurrentPosition, GlobalConstants.TwoPositionsApartFromEatchother))
+                warrior.CurrentPosition = GetRandomPositionInGrid();
+
+                while (!ValidateSpawningPosition(warrior.CurrentPosition,
+                    GlobalConstants.ThreePositionsApartFromEatchother))
                 {
                     warrior.CurrentPosition = GetRandomPositionInGrid();
                 }
@@ -87,7 +88,8 @@
             {
                 fruit.CurrentPosition = GetRandomPositionInGrid();
 
-                while (ValidateSpawningPosition(fruit.CurrentPosition, GlobalConstants.ThreePositionsApartFromEatchother))
+                while (!ValidateSpawningPosition(fruit.CurrentPosition,
+                    GlobalConstants.TwoPositionsApartFromEatchother))
                 {
                     fruit.CurrentPosition = GetRandomPositionInGrid();
                 }
@@ -101,14 +103,21 @@
         {
             int direction = 0; // The initial direction is "down"
             int stepsCount = 1; // Perform 1 step in current direction
-            int stepPosition = 0; // 0 steps already performed
+            int stepPosition = 1; // 0 steps already performed
             int stepChange = 0; // Steps count changes after 2 steps
-
+            int initialRowPosition = entityPosition.Row;
+            int initialColPosition = entityPosition.Col;
 
             for (int i = 1; i < movesApartFromEachother; i++)
             {
-                if (this._grid[entityPosition.Col, entityPosition.Row] == GlobalConstants.AppleSymbol ||
-                    this._grid[entityPosition.Col, entityPosition.Row] == GlobalConstants.PearSymbol)
+                if (initialRowPosition < 0 || initialRowPosition >= GlobalConstants.GameGridRowsCount ||
+                    initialColPosition < 0 || initialColPosition >= GlobalConstants.GameGridColsCount)
+                {
+                    continue;
+                }
+
+                if (this._grid[initialColPosition, initialRowPosition] == GlobalConstants.AppleSymbol ||
+                    this._grid[initialColPosition, initialRowPosition] == GlobalConstants.PearSymbol)
                 {
                     return false;
                 }
@@ -133,16 +142,16 @@
                 switch (direction)
                 {
                     case 0:
-                        entityPosition.Col++;
+                        initialColPosition++;
                         break;
                     case 1:
-                        entityPosition.Row--;
+                        initialRowPosition--;
                         break;
                     case 2:
-                        entityPosition.Col--;
+                        initialColPosition--;
                         break;
                     case 3:
-                        entityPosition.Row++;
+                        initialRowPosition++;
                         break;
                 }
             }

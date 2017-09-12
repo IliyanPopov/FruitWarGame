@@ -16,20 +16,20 @@
     {
         public override void Load()
         {
-            Bind<IEngine>().To<Engine>();
-            Bind<IRenderer>().To<ConsoleRenderer>();
-            Bind<IWriter>().To<ConsoleWriter>();
-            Bind<IReader>().To<ConsoleReader>();
+            Bind<IEngine>().To<Engine>().InSingletonScope();
+            Bind<IRenderer>().To<ConsoleRenderer>().InSingletonScope();
+            Bind<IWriter>().To<ConsoleWriter>().InSingletonScope();
+            Bind<IReader>().To<ConsoleReader>().InSingletonScope();
 
-            Bind<IFruitRepository>().To<FruitRepository>();
-            Bind<IWarriorRepository>().To<WarriorRepository>();
+            Bind<IFruitRepository>().To<FruitRepository>().InSingletonScope();
+            Bind<IWarriorRepository>().To<WarriorRepository>().InSingletonScope();
 
-            Bind<IGameInitializationStrategy>().To<GameInitializationStrategy>();
+            Bind<IGameInitializationStrategy>().To<GameInitializationStrategy>().InSingletonScope();
 
-            Bind<IGameGrid>().To<GameGrid>();
-            Bind<IPosition>().To<Position>();
-            Bind<IFruitFactory>().To<FruitFactory>();
-            Bind<IWarriorFactory>().To<WarriorFactory>();
+            Bind<IGameGrid>().To<GameGrid>().InSingletonScope();
+            Bind<IPosition>().To<Position>().InSingletonScope();
+            Bind<IFruitFactory>().To<FruitFactory>().InSingletonScope();
+            Bind<IWarriorFactory>().To<WarriorFactory>().InSingletonScope();
         }
     }
 }

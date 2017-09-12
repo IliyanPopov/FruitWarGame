@@ -74,11 +74,11 @@
 
         private static void ValidateCell(int row, int col)
         {
-            if (row < 0 || row > GlobalConstants.GameGridRowsCount - 1)
+            if (row < 0 || row > GlobalConstants.GameGridRowsCount)
             {
                 throw new IndexOutOfRangeException($"Invalid row: {row}");
             }
-            if (col < 0 || col > GlobalConstants.GameGridRowsCount - 1)
+            if (col < 0 || col > GlobalConstants.GameGridRowsCount)
             {
                 throw new IndexOutOfRangeException($"Invalid col: {col}");
             }
