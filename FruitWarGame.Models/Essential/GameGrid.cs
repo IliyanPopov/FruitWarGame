@@ -10,7 +10,12 @@
     {
         private readonly char[,] _grid;
 
-        public GameGrid(int rows = GlobalConstants.GameGridRowsCount, int cols = GlobalConstants.GameGridColsCount)
+        public GameGrid()
+            : this(GlobalConstants.GameGridRowsCount, GlobalConstants.GameGridColsCount)
+        {
+        }
+
+        protected GameGrid(int rows = GlobalConstants.GameGridRowsCount, int cols = GlobalConstants.GameGridColsCount)
         {
             this.Rows = rows;
             this.Cols = cols;
