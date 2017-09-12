@@ -1,5 +1,6 @@
 ﻿namespace FruitWarGame.Models.Contracts.Essential
 {
+    using Fruits;
     using Warriors;
 
     public interface IGameGrid
@@ -9,6 +10,8 @@
         int Cols { get; }
 
         void PlaceWarrior(IWarrior warrior);
+
+        void PlaceFruit(IFruit fruit);
 
         char GetCell(IPosition position);
 

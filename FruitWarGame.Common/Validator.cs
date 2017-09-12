@@ -11,5 +11,15 @@
                 throw new IndexOutOfRangeException(errorMessage);
             }
         }
+
+        public static bool Validate(int value, int min, int max)
+        {
+            if (value < min || value >= max)
+            {
+                return false;
+            }
+
+            return true;
+        }
     }
 }

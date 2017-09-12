@@ -1,6 +1,7 @@
 ﻿namespace FruitWarGame.Models.Factories
 {
     using System;
+    using Contracts.Factories;
     using Contracts.Warriors;
     using Warriors;
 

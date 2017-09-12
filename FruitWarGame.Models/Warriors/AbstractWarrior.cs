@@ -6,6 +6,7 @@
     using Contracts.Essential;
     using Contracts.Fruits;
     using Contracts.Warriors;
+    using Essential;
 
     public abstract class AbstractWarrior : IWarrior
     {
@@ -25,7 +26,7 @@
         public char PlayerSymbol { get; protected set; }
 
         //TODO figure out how to initialize this
-        public IPosition CurrentPosition { get; }
+        public IPosition CurrentPosition { get; set; }
 
         public int TotalSpeedPoints
         {

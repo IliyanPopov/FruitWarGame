@@ -9,10 +9,9 @@
         private const int PearPowerPointBonusValue = 0;
         private const int PearSpeedPointBonusValue = 1;
 
-        public Pear(IPosition position)
+        public Pear()
         {
             this.Symbol = PearSymbol;
-            this.CurrentPosition = position;
         }
 
         public int PowerPointsBonus => PearPowerPointBonusValue;

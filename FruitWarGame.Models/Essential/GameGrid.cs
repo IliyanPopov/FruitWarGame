@@ -3,11 +3,11 @@
     using System;
     using Common;
     using Contracts.Essential;
+    using Contracts.Fruits;
     using Contracts.Warriors;
 
     public class GameGrid : IGameGrid
     {
-
         private readonly char[,] _grid;
 
         public GameGrid(int rows = GlobalConstants.GameGridRowsCount, int cols = GlobalConstants.GameGridColsCount)
@@ -23,14 +23,25 @@
 
         public void PlaceWarrior(IWarrior warrior)
         {
-            //int warriorRow = warrior.
-            //int shipCol = ship.TopLeft.CurrentCol;
-            //  this._grid[shipRow, shipCol] = ship.Image;
+            int warriorRow = warrior.CurrentPosition.Row;
+            int warriorCol = warrior.CurrentPosition.Col;
+            ValidateCell(warriorRow, warriorCol);
+
+            this._grid[warriorRow, warriorCol] = warrior.PlayerSymbol;
+        }
+
+        public void PlaceFruit(IFruit fruit)
+        {
+            int fruitRow = fruit.CurrentPosition.Row;
+            int fruitCol = fruit.CurrentPosition.Col;
+            ValidateCell(fruitRow, fruitCol);
+
+            this._grid[fruitRow, fruitCol] = fruit.Symbol;
         }
 
         public char GetCell(IPosition position)
         {
-            return this._grid[position.CurrentRow, position.CurrentCol];
+            return this._grid[position.Row, position.Col];
         }
 
         public char GetCell(int row, int col)
@@ -40,7 +51,7 @@
 
         public void SetCell(IPosition position, char value)
         {
-            this._grid[position.CurrentRow, position.CurrentCol] = value;
+            this._grid[position.Row, position.Col] = value;
         }
 
         public void SetCell(int row, int col, char value)

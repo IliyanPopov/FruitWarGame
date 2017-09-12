@@ -4,7 +4,7 @@
 
     public interface IWarrior
     {
-        IPosition CurrentPosition { get; }
+        IPosition CurrentPosition { get; set; }
 
         int TotalSpeedPoints { get; }
 

@@ -20,10 +20,10 @@
             switch (fruitSymbol)
             {
                 case 'A':
-                    IFruit apple = new Apple(this._position);
+                    IFruit apple = new Apple();
                     return apple;
                 case 'P':
-                    IFruit pear = new Pear(this._position);
+                    IFruit pear = new Pear();
                     return pear;
 
                 default:
