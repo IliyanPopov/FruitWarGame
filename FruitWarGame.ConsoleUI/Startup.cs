@@ -4,6 +4,8 @@
     {
         public static void Main()
         {
+            // TODO SetUp Ninject
+            //   IEngine engine = new Engine();
         }
     }
 }

@@ -2,6 +2,9 @@
 {
     public static class GlobalConstants
     {
+        public const char Player1Symbol = '1';
+        public const char Player2Symbol = '1';
+
         public const char AppleSymbol = 'A';
         public const char PearSymbol = 'P';
 

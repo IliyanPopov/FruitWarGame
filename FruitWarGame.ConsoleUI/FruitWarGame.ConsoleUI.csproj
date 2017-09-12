@@ -49,6 +49,7 @@
     <Compile Include="ConsoleIO\Contracts\IReader.cs" />
     <Compile Include="ConsoleIO\Contracts\IWriter.cs" />
     <Compile Include="Contracts\IEngine.cs" />
+    <Compile Include="Engine.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

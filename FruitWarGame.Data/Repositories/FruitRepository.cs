@@ -1,4 +1,4 @@
-﻿namespace FruitWarGame.Data
+﻿namespace FruitWarGame.Data.Repositories
 {
     using System;
     using System.Collections;

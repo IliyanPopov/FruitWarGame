@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FruitWarGame.Logic.Contracts
+﻿namespace FruitWarGame.Logic.Contracts
 {
+    using System.Collections.Generic;
+
     public interface IGameInitializationStrategy
     {
-        
+        void Initialize(IDictionary<char, int> warriorTypes);
     }
 }

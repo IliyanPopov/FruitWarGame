@@ -3,34 +3,32 @@
     using System;
     using System.Collections.Generic;
     using Common;
+    using Contracts;
     using Data.Contracts;
     using Models.Contracts.Essential;
     using Models.Contracts.Factories;
     using Models.Contracts.Warriors;
     using Models.Essential;
 
-    public class GameInitializationStrategy
+
+    public class GameInitializationStrategy : IGameInitializationStrategy
     {
         private const char GridDefaultSymbol = '-';
         private const int InitialApplesCount = 4;
         private const int InitialPearsCount = 3;
-        private const int MinimumDifferenceInFruitSpawningPosition = 2;
-        private const int MinimumDifferenceInWarriorSpawningPosition = 3;
 
         private static readonly Random Random = new Random();
         private static readonly object SyncLock = new object();
         private readonly IFruitFactory _fruitFactory;
         private readonly IFruitRepository _fruitRepository;
         private readonly IGameGrid _grid;
-        private readonly IPosition _position;
         private readonly IWarriorFactory _warriorFactory;
         private readonly IWarriorRepository _warriorRepository;
 
-        public GameInitializationStrategy(IGameGrid gamegrid, IPosition position, IWarriorRepository warriorRepository,
+        public GameInitializationStrategy(IGameGrid gamegrid, IWarriorRepository warriorRepository,
             IFruitRepository fruitRepository, IWarriorFactory warriorFactory, IFruitFactory fruitFactory)
         {
             this._grid = gamegrid;
-            this._position = position;
             this._warriorRepository = warriorRepository;
             this._fruitRepository = fruitRepository;
             this._warriorFactory = warriorFactory;
@@ -106,7 +104,7 @@
             int stepPosition = 0; // 0 steps already performed
             int stepChange = 0; // Steps count changes after 2 steps
 
-    
+
             for (int i = 1; i < movesApartFromEachother; i++)
             {
                 if (this._grid[entityPosition.Col, entityPosition.Row] == GlobalConstants.AppleSymbol ||
