@@ -1,8 +1,8 @@
-C:\Users\Gabriel\Documents\Visual Studio 2017\Projects\FruitWarGame\FruitWarGame.Models\obj\Debug\FruitWarGame.Models.csprojResolveAssemblyReference.cache
-C:\Users\Gabriel\Documents\Visual Studio 2017\Projects\FruitWarGame\FruitWarGame.Models\obj\Debug\FruitWarGame.Models.csproj.CoreCompileInputs.cache
 C:\Users\Gabriel\Documents\Visual Studio 2017\Projects\FruitWarGame\FruitWarGame.Models\bin\Debug\FruitWarGame.Models.dll
 C:\Users\Gabriel\Documents\Visual Studio 2017\Projects\FruitWarGame\FruitWarGame.Models\bin\Debug\FruitWarGame.Models.pdb
 C:\Users\Gabriel\Documents\Visual Studio 2017\Projects\FruitWarGame\FruitWarGame.Models\bin\Debug\FruitWarGame.Common.dll
 C:\Users\Gabriel\Documents\Visual Studio 2017\Projects\FruitWarGame\FruitWarGame.Models\bin\Debug\FruitWarGame.Common.pdb
+C:\Users\Gabriel\Documents\Visual Studio 2017\Projects\FruitWarGame\FruitWarGame.Models\obj\Debug\FruitWarGame.Models.csprojResolveAssemblyReference.cache
+C:\Users\Gabriel\Documents\Visual Studio 2017\Projects\FruitWarGame\FruitWarGame.Models\obj\Debug\FruitWarGame.Models.csproj.CoreCompileInputs.cache
 C:\Users\Gabriel\Documents\Visual Studio 2017\Projects\FruitWarGame\FruitWarGame.Models\obj\Debug\FruitWarGame.Models.dll
 C:\Users\Gabriel\Documents\Visual Studio 2017\Projects\FruitWarGame\FruitWarGame.Models\obj\Debug\FruitWarGame.Models.pdb

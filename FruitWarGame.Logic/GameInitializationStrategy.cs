@@ -1,12 +1,13 @@
 ﻿namespace FruitWarGame.Logic
 {
     using System;
-    using System.Collections.Generic;
     using Common;
     using Contracts;
     using Data.Contracts;
     using Models.Contracts.Essential;
     using Models.Contracts.Factories;
+    using Models.Contracts.Fruits;
+    using Models.Contracts.Warriors;
     using Models.Essential;
 
     public class GameInitializationStrategy : IGameInitializationStrategy
@@ -20,25 +21,22 @@
         private readonly IFruitFactory _fruitFactory;
         private readonly IFruitRepository _fruitRepository;
         private readonly IGameGrid _grid;
-        private readonly IWarriorFactory _warriorFactory;
         private readonly IWarriorRepository _warriorRepository;
 
         public GameInitializationStrategy(IGameGrid gamegrid, IWarriorRepository warriorRepository,
-            IFruitRepository fruitRepository, IWarriorFactory warriorFactory, IFruitFactory fruitFactory)
+            IFruitRepository fruitRepository, IFruitFactory fruitFactory)
         {
             this._grid = gamegrid;
             this._warriorRepository = warriorRepository;
             this._fruitRepository = fruitRepository;
-            this._warriorFactory = warriorFactory;
             this._fruitFactory = fruitFactory;
         }
 
-        public void Initialize(IDictionary<char, int> warriorTypes)
+        public void Initialize()
         {
             InitializeGrid(GridDefaultSymbol);
             CreateFruits();
             AddFruitsToGrid();
-            CreateWarriors(warriorTypes);
             AddWarriorsToGrid();
         }
 
@@ -56,8 +54,7 @@
                 }
                 else
                 {
-                    while (ValidateSpawningPosition(warrior.CurrentPosition,
-                        GlobalConstants.ThreePositionsApartFromEatchother))
+                    while (ValidateWarriorSpawningPosition(warrior, GlobalConstants.TwoPositionsApartFromEatchother))
                     {
                         warrior.CurrentPosition = GetRandomPositionInGrid();
                     }
@@ -67,14 +64,6 @@
             }
         }
 
-        private void CreateWarriors(IDictionary<char, int> warriorTypes)
-        {
-            foreach (var warriorType in warriorTypes)
-            {
-                var warrior = this._warriorFactory.CreateWarrior(warriorType.Key, warriorType.Value);
-                this._warriorRepository.AddWarrior(warrior);
-            }
-        }
 
         private void CreateFruits()
         {
@@ -105,7 +94,7 @@
                 }
                 else
                 {
-                    while (ValidateSpawningPosition(fruit.CurrentPosition, GlobalConstants.OnePositionsApartFromEatchother))
+                    while (ValidateFruitSpawningPosition(fruit, 6))
                     {
                         fruit.CurrentPosition = GetRandomPositionInGrid();
                     }
@@ -115,15 +104,15 @@
             }
         }
 
-        // Not tested yet
-        private bool ValidateSpawningPosition(IPosition entityPosition, int movesApartFromEachother)
+        // kind of works
+        private bool ValidateFruitSpawningPosition(IFruit fruit, int movesApartFromEachother)
         {
             int direction = 0; // The initial direction is "down"
             int stepsCount = 1; // Perform 1 step in current direction
             int stepPosition = 0; // 0 steps already performed
             int stepChange = 0; // Steps count changes after 2 steps
-            int initialRowPosition = entityPosition.Row;
-            int initialColPosition = entityPosition.Col;
+            int positionX = fruit.CurrentPosition.Row;
+            int positionY = fruit.CurrentPosition.Col;
 
             for (int i = 0; i < movesApartFromEachother; i++)
             {
@@ -134,11 +123,11 @@
 
                 else
                 {
-                    if (initialRowPosition >= 0 && initialRowPosition <= this._grid.Rows - 1 &&
-                        initialColPosition >= 0 && initialColPosition <= this._grid.Cols - 1)
+                    if (positionX >= 0 && positionX <= this._grid.Rows - 1 &&
+                        positionY >= 0 && positionY <= this._grid.Cols - 1)
                     {
-                        if (this._grid[initialRowPosition, initialColPosition] == GlobalConstants.AppleSymbol ||
-                            this._grid[initialRowPosition, initialColPosition] == GlobalConstants.PearSymbol)
+                        if (this._grid[positionX, positionY] == GlobalConstants.AppleSymbol ||
+                            this._grid[positionX, positionY] == GlobalConstants.PearSymbol)
                         {
                             return true;
                         }
@@ -165,16 +154,83 @@
                 switch (direction)
                 {
                     case 0:
-                        initialColPosition++;
+                        positionY++;
                         break;
                     case 1:
-                        initialRowPosition--;
+                        positionX--;
                         break;
                     case 2:
-                        initialColPosition--;
+                        positionY--;
                         break;
                     case 3:
-                        initialRowPosition++;
+                        positionX++;
+                        break;
+                }
+            }
+
+            return false;
+        }
+
+        private bool ValidateWarriorSpawningPosition(IWarrior warrior, int movesApartFromEachother)
+        {
+            int direction = 0; // The initial direction is "down"
+            int stepsCount = 1; // Perform 1 step in current direction
+            int stepPosition = 0; // 0 steps already performed
+            int stepChange = 0; // Steps count changes after 2 steps
+            int positionX = warrior.CurrentPosition.Row;
+            int positionY = warrior.CurrentPosition.Col;
+
+            for (int i = 0; i < movesApartFromEachother; i++)
+            {
+                if (i == 0)
+                {
+                    stepPosition++;
+                }
+
+                else
+                {
+                    if (positionX >= 0 && positionX <= this._grid.Rows - 1 &&
+                        positionY >= 0 && positionY <= this._grid.Cols - 1)
+                    {
+                        if (
+                            this._grid[positionX, positionY] == GlobalConstants.Player1Symbol ||
+                            this._grid[positionX, positionY] == GlobalConstants.Player2Symbol)
+                        {
+                            return true;
+                        }
+                    }
+
+                    // Check for direction / step changes
+                    if (stepPosition < stepsCount)
+                    {
+                        stepPosition++;
+                    }
+                    else
+                    {
+                        stepPosition = 1;
+                        if (stepChange == 1)
+                        {
+                            stepsCount++;
+                        }
+                        stepChange = (stepChange + 1) % 2;
+                        direction = (direction + 1) % 4;
+                    }
+                }
+
+                // Move to the next cell in the current direction
+                switch (direction)
+                {
+                    case 0:
+                        positionY++;
+                        break;
+                    case 1:
+                        positionX--;
+                        break;
+                    case 2:
+                        positionY--;
+                        break;
+                    case 3:
+                        positionX++;
                         break;
                 }
             }
@@ -205,36 +261,6 @@
             }
 
             return new Position(row, col);
-        }
-
-        // another test
-        private bool findingNeighbors(IPosition entityPosition)
-        {
-            var rowLimit = this._grid.Rows;
-            var columnLimit = this._grid.Cols;
-
-            for (var x = Math.Max(0, entityPosition.Row - 1); x <= Math.Min(entityPosition.Row + 1, rowLimit); x++)
-            {
-                for (var y = Math.Max(0, entityPosition.Col - 1);
-                    y <= Math.Min(entityPosition.Col + 1, columnLimit);
-                    y++)
-                {
-                    if (x != entityPosition.Row || y != entityPosition.Col)
-                    {
-                        if (x < 0 && x >= GlobalConstants.GameGridRowsCount ||
-                            y < 0 && y >= GlobalConstants.GameGridColsCount)
-                        {
-                            if (this._grid[x, y] == GlobalConstants.AppleSymbol ||
-                                this._grid[x, y] == GlobalConstants.PearSymbol)
-                            {
-                                return true;
-                            }
-                        }
-                    }
-                }
-            }
-
-            return false;
         }
     }
 }

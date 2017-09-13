@@ -2,6 +2,11 @@
 {
     public static class GlobalConstants
     {
+        public const string Player1CreationMessage = "Player1, please choose a warrior.";
+        public const string Player2CreationMessage = "Player2, please choose a warrior.";
+
+        public const string AvailableWarriorsMessage = "Insert 1 for turtle / 2 for monkey / 3 for pigeon";
+
         public const char Player1Symbol = '1';
         public const char Player2Symbol = '2';
 
