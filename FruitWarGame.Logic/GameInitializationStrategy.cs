@@ -44,17 +44,26 @@
 
         private void AddWarriorsToGrid()
         {
+            bool isFirstIteration = true;
             foreach (var warrior in this._warriorRepository)
             {
                 warrior.CurrentPosition = GetRandomPositionInGrid();
 
-                while (!ValidateSpawningPosition(warrior.CurrentPosition,
-                    GlobalConstants.ThreePositionsApartFromEatchother))
+                if (isFirstIteration)
                 {
-                    warrior.CurrentPosition = GetRandomPositionInGrid();
+                    this._grid.PlaceWarrior(warrior);
+                    isFirstIteration = false;
                 }
+                else
+                {
+                    while (ValidateSpawningPosition(warrior.CurrentPosition,
+                        GlobalConstants.ThreePositionsApartFromEatchother))
+                    {
+                        warrior.CurrentPosition = GetRandomPositionInGrid();
+                    }
 
-                this._grid.PlaceWarrior(warrior);
+                    this._grid.PlaceWarrior(warrior);
+                }
             }
         }
 
@@ -84,17 +93,25 @@
 
         private void AddFruitsToGrid()
         {
+            bool isFirstIteration = true;
             foreach (var fruit in this._fruitRepository)
             {
                 fruit.CurrentPosition = GetRandomPositionInGrid();
 
-                while (!ValidateSpawningPosition(fruit.CurrentPosition,
-                    GlobalConstants.TwoPositionsApartFromEatchother))
+                if (isFirstIteration)
                 {
-                    fruit.CurrentPosition = GetRandomPositionInGrid();
+                    this._grid.PlaceFruit(fruit);
+                    isFirstIteration = false;
                 }
+                else
+                {
+                    while (ValidateSpawningPosition(fruit.CurrentPosition, GlobalConstants.OnePositionsApartFromEatchother))
+                    {
+                        fruit.CurrentPosition = GetRandomPositionInGrid();
+                    }
 
-                this._grid.PlaceFruit(fruit);
+                    this._grid.PlaceFruit(fruit);
+                }
             }
         }
 
@@ -103,39 +120,45 @@
         {
             int direction = 0; // The initial direction is "down"
             int stepsCount = 1; // Perform 1 step in current direction
-            int stepPosition = 1; // 0 steps already performed
+            int stepPosition = 0; // 0 steps already performed
             int stepChange = 0; // Steps count changes after 2 steps
             int initialRowPosition = entityPosition.Row;
             int initialColPosition = entityPosition.Col;
 
-            for (int i = 1; i < movesApartFromEachother; i++)
+            for (int i = 0; i < movesApartFromEachother; i++)
             {
-                if (initialRowPosition < 0 || initialRowPosition >= GlobalConstants.GameGridRowsCount ||
-                    initialColPosition < 0 || initialColPosition >= GlobalConstants.GameGridColsCount)
-                {
-                    continue;
-                }
-
-                if (this._grid[initialColPosition, initialRowPosition] == GlobalConstants.AppleSymbol ||
-                    this._grid[initialColPosition, initialRowPosition] == GlobalConstants.PearSymbol)
-                {
-                    return false;
-                }
-
-                // Check for direction / step changes
-                if (stepPosition < stepsCount)
+                if (i == 0)
                 {
                     stepPosition++;
                 }
+
                 else
                 {
-                    stepPosition = 1;
-                    if (stepChange == 1)
+                    if (initialRowPosition >= 0 && initialRowPosition <= this._grid.Rows - 1 &&
+                        initialColPosition >= 0 && initialColPosition <= this._grid.Cols - 1)
                     {
-                        stepsCount++;
+                        if (this._grid[initialRowPosition, initialColPosition] == GlobalConstants.AppleSymbol ||
+                            this._grid[initialRowPosition, initialColPosition] == GlobalConstants.PearSymbol)
+                        {
+                            return true;
+                        }
                     }
-                    stepChange = (stepChange + 1) % 2;
-                    direction = (direction + 1) % 4;
+
+                    // Check for direction / step changes
+                    if (stepPosition < stepsCount)
+                    {
+                        stepPosition++;
+                    }
+                    else
+                    {
+                        stepPosition = 1;
+                        if (stepChange == 1)
+                        {
+                            stepsCount++;
+                        }
+                        stepChange = (stepChange + 1) % 2;
+                        direction = (direction + 1) % 4;
+                    }
                 }
 
                 // Move to the next cell in the current direction
@@ -156,7 +179,7 @@
                 }
             }
 
-            return true;
+            return false;
         }
 
         private void InitializeGrid(char symbol)
@@ -182,6 +205,36 @@
             }
 
             return new Position(row, col);
+        }
+
+        // another test
+        private bool findingNeighbors(IPosition entityPosition)
+        {
+            var rowLimit = this._grid.Rows;
+            var columnLimit = this._grid.Cols;
+
+            for (var x = Math.Max(0, entityPosition.Row - 1); x <= Math.Min(entityPosition.Row + 1, rowLimit); x++)
+            {
+                for (var y = Math.Max(0, entityPosition.Col - 1);
+                    y <= Math.Min(entityPosition.Col + 1, columnLimit);
+                    y++)
+                {
+                    if (x != entityPosition.Row || y != entityPosition.Col)
+                    {
+                        if (x < 0 && x >= GlobalConstants.GameGridRowsCount ||
+                            y < 0 && y >= GlobalConstants.GameGridColsCount)
+                        {
+                            if (this._grid[x, y] == GlobalConstants.AppleSymbol ||
+                                this._grid[x, y] == GlobalConstants.PearSymbol)
+                            {
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+
+            return false;
         }
     }
 }
