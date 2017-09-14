@@ -26,11 +26,11 @@
 
         public int Cols { get; }
 
-        public char this[int yPosition, int xPosition]
+        public char this[int xPosition, int yPosition]
         {
-            get { return this._grid[yPosition, xPosition]; }
+            get { return this._grid[xPosition, yPosition]; }
 
-            set { this._grid[yPosition, xPosition] = value; }
+            set { this._grid[xPosition, yPosition] = value; }
         }
 
         public void PlaceWarrior(IWarrior warrior)

@@ -7,6 +7,7 @@
 
         public const string AvailableWarriorsMessage = "Insert 1 for turtle / 2 for monkey / 3 for pigeon";
 
+        public const int NumberOfPlayers = 2;
         public const char Player1Symbol = '1';
         public const char Player2Symbol = '2';
 
@@ -21,8 +22,8 @@
         // for 2 position difference i  = 25
         // for 3 position difference i  = 49
         // for 4 position difference i  = 81
-        public const int OnePositionsApartFromEatchother = 9;
-        public const int TwoPositionsApartFromEatchother = 25;
-        public const int ThreePositionsApartFromEatchother = 49;
+        public const int TwoPositionsApartFromEatchother = 9;
+        public const int ThreePositionsApartFromEatchother = 25;
+        // public const int FourPositionsApartFromEatchother = 49;
     }
 }

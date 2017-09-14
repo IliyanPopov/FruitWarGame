@@ -6,7 +6,7 @@
     {
         void RenderGrid();
 
-        void UpdateGrid(IPosition position);
+        void UpdateGrid(IPosition position, char value);
 
         void Clear();
     }

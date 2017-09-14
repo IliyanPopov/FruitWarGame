@@ -9,7 +9,7 @@
 
         int Cols { get; }
 
-        char this[int yPosition, int xPosition]
+        char this[int xPosition, int yPosition]
         {
             get;
             set;

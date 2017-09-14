@@ -45,5 +45,21 @@
                 this._eatenFruits.Add(fruit);
             }
         }
+
+        public void MakeTurn(IGameGrid grid)
+        {
+            
+        }
+
+        //private IPosition FindPositionOfPlayerInGrid(IGameGrid gird)
+        //{
+        //    for (int i = 0; i < gird.Rows; i++)
+        //    {
+        //        for (int j = 0; j < gird.Cols; j++)
+        //        {
+        //            //
+        //        }
+        //    }
+        //}
     }
 }

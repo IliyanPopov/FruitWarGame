@@ -27,7 +27,7 @@
             {
                 for (int col = 0; col < this._grid.Cols; col++)
                 {
-                   this._gameScene.Append(this._grid.GetCell(row, col) + " ");
+                    this._gameScene.Append(this._grid.GetCell(row, col) + " ");
                 }
 
                 this._gameScene.Append(Environment.NewLine);
@@ -37,9 +37,9 @@
             this._writer.WriteLine(this._gameScene.ToString());
         }
 
-        public void UpdateGrid(IPosition position)
+        public void UpdateGrid(IPosition position, char value)
         {
-           this._writer.Write(this._grid.GetCell(position.Row, position.Col));
+            this._grid[position.Row, position.Col] = value;
 
         }
 

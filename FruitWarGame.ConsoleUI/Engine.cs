@@ -19,7 +19,7 @@
         private readonly IWarriorFactory _warriorFactory;
         private readonly IWriter _writer;
 
-        public Engine(IGameInitializationStrategy gameInitializationStrategy,IWarriorRepository warriorRepository, IWarriorFactory warriorFactory,
+        public Engine(IGameInitializationStrategy gameInitializationStrategy, IWarriorRepository warriorRepository, IWarriorFactory warriorFactory,
             IRenderer renderer, IReader reader, IWriter writer)
         {
             this._gameInitializationStrategy = gameInitializationStrategy;
@@ -33,7 +33,6 @@
         public void Run()
         {
             IWarrior player1Warrior = null;
-
             while (player1Warrior == null)
             {
                 player1Warrior = CreateWarrior(GlobalConstants.Player1Symbol, GlobalConstants.Player1CreationMessage,
@@ -41,47 +40,69 @@
             }
 
             IWarrior player2Warrior = null;
-
             while (player2Warrior == null)
             {
                 player2Warrior = CreateWarrior(GlobalConstants.Player2Symbol, GlobalConstants.Player2CreationMessage,
                     GlobalConstants.AvailableWarriorsMessage);
             }
+
             this._warriorRepository.AddWarrior(player1Warrior);
             this._warriorRepository.AddWarrior(player2Warrior);
 
+            this._writer.Clear();
             this._gameInitializationStrategy.Initialize();
             this._renderer.RenderGrid();
+
+            // process player turns and movement
+            int playerTurns = 0;
+            while (true)
+            {
+                if (playerTurns % 2 == 0)
+                {
+                    // first player makes turn
+                //    ConsoleKey.UpArrow
+                }
+                if (playerTurns % 2 == 1)
+                {
+                    // second player turns player makes turn
+                }
+
+                playerTurns++;             
+            }
         }
 
         private IWarrior CreateWarrior(char warriorSymbol, string playerCreationMessage, string availableWarriorsMessage)
         {
             this._writer.WriteLine(playerCreationMessage);
             this._writer.WriteLine(availableWarriorsMessage);
-            int playerWarriorTpye = int.Parse(this._reader.ReadLine());
             IWarrior playerWarrior = null;
 
             try
             {
+                int playerWarriorTpye;
+                bool isParseSuccessfull = int.TryParse(this._reader.ReadLine(), out playerWarriorTpye);
+                if (!isParseSuccessfull)
+                {
+                    throw new ArgumentException();
+                }
                 playerWarrior = this._warriorFactory.CreateWarrior(warriorSymbol, playerWarriorTpye);
             }
 
-            catch (Exception)
+            catch (NotImplementedException e)
             {
-                Console.WriteLine($"Cannot create warrior of type: {playerWarriorTpye}");
-                Thread.Sleep(1500);
+                Console.WriteLine($"{e.Message}");
+                Thread.Sleep(2000);
+                this._writer.Clear();
+            }
+
+            catch (ArgumentException)
+            {
+                Console.WriteLine($"Wrong input!");
+                Thread.Sleep(2000);
                 this._writer.Clear();
             }
 
             return playerWarrior;
-        }
-
-        private void AddWarriorsToRepository(IList<IWarrior> warriors)
-        {
-            foreach (var warrior in warriors)
-            {
-                this._warriorRepository.AddWarrior(warrior);
-            }
         }
     }
 }
