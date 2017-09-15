@@ -1,4 +1,6 @@
+C:\Users\Gabriel\Documents\Visual Studio 2017\Projects\FruitWarGame\FruitWarGame.ConsoleUI\bin\Debug\FruitWarGame.ConsoleUI.exe.config
 C:\Users\Gabriel\Documents\Visual Studio 2017\Projects\FruitWarGame\FruitWarGame.ConsoleUI\bin\Debug\FruitWarGame.ConsoleUI.exe
+C:\Users\Gabriel\Documents\Visual Studio 2017\Projects\FruitWarGame\FruitWarGame.ConsoleUI\bin\Debug\FruitWarGame.ConsoleUI.pdb
 C:\Users\Gabriel\Documents\Visual Studio 2017\Projects\FruitWarGame\FruitWarGame.ConsoleUI\bin\Debug\FruitWarGame.Common.dll
 C:\Users\Gabriel\Documents\Visual Studio 2017\Projects\FruitWarGame\FruitWarGame.ConsoleUI\bin\Debug\FruitWarGame.Data.dll
 C:\Users\Gabriel\Documents\Visual Studio 2017\Projects\FruitWarGame\FruitWarGame.ConsoleUI\bin\Debug\FruitWarGame.Logic.dll
@@ -13,5 +15,3 @@ C:\Users\Gabriel\Documents\Visual Studio 2017\Projects\FruitWarGame\FruitWarGame
 C:\Users\Gabriel\Documents\Visual Studio 2017\Projects\FruitWarGame\FruitWarGame.ConsoleUI\obj\Debug\FruitWarGame.ConsoleUI.csproj.CoreCompileInputs.cache
 C:\Users\Gabriel\Documents\Visual Studio 2017\Projects\FruitWarGame\FruitWarGame.ConsoleUI\obj\Debug\FruitWarGame.ConsoleUI.exe
 C:\Users\Gabriel\Documents\Visual Studio 2017\Projects\FruitWarGame\FruitWarGame.ConsoleUI\obj\Debug\FruitWarGame.ConsoleUI.pdb
-C:\Users\Gabriel\Documents\Visual Studio 2017\Projects\FruitWarGame\FruitWarGame.ConsoleUI\bin\Debug\FruitWarGame.ConsoleUI.exe.config
-C:\Users\Gabriel\Documents\Visual Studio 2017\Projects\FruitWarGame\FruitWarGame.ConsoleUI\bin\Debug\FruitWarGame.ConsoleUI.pdb

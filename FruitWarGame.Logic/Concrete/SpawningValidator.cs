@@ -1,4 +1,4 @@
-﻿namespace FruitWarGame.Logic
+﻿namespace FruitWarGame.Logic.Concrete
 {
     using Common;
     using Contracts;
@@ -13,7 +13,7 @@
             this._grid = grid;
         }
 
-        public bool ValidateFruitSpawningPosition(IPosition placableEntity, PlacableEntities entityType,
+        public bool ValidateSpawningPosition(IPosition placableEntity, PlacableEntities entityType,
             int movesApartFromEachother)
         {
             int direction = 0; // The initial direction is "down"

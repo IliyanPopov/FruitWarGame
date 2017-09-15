@@ -18,7 +18,7 @@
 
         public char Symbol { get; }
 
-        public bool IsEaten { get; }
+        public bool IsEaten { get; set; }
 
         public IPosition CurrentPosition { get; set; }
     }

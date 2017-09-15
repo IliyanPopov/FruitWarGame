@@ -1,6 +1,7 @@
 ﻿namespace FruitWarGame.Models.Contracts.Warriors
 {
     using Essential;
+    using Fruits;
 
     public interface IWarrior
     {
@@ -11,5 +12,7 @@
         int TotalPowerPoints { get; }
 
         char Symbol { get; }
+
+        void EatFruit(IFruit fruit);
     }
 }

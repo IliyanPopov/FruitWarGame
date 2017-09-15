@@ -35,6 +35,7 @@
             }
 
             this._writer.WriteLine(this._gameScene.ToString());
+            this._gameScene.Clear();
         }
 
         public void UpdateGrid(IPosition position, char value)

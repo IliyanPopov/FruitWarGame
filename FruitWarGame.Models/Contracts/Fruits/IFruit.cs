@@ -8,6 +8,6 @@
 
         char Symbol { get; }
 
-        bool IsEaten { get; }   
+        bool IsEaten { get; set; }
     }
 }

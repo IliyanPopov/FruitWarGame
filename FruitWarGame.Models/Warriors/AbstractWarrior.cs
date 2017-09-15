@@ -42,6 +42,7 @@
         {
             if (fruit != null)
             {
+                fruit.IsEaten = true;
                 this._eatenFruits.Add(fruit);
             }
         }

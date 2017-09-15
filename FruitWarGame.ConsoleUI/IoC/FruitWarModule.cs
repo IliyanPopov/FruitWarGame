@@ -5,6 +5,7 @@
     using Data.Contracts;
     using Data.Repositories;
     using Logic;
+    using Logic.Concrete;
     using Logic.Contracts;
     using Models.Contracts.Essential;
     using Models.Contracts.Factories;

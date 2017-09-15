@@ -1,10 +1,11 @@
 ﻿namespace FruitWarGame.Logic.Contracts
 {
+    using Concrete;
     using Models.Contracts.Essential;
 
     public interface ISpawningValidator
     {
-        bool ValidateFruitSpawningPosition(IPosition placableEntity, PlacableEntities entityType,
+        bool ValidateSpawningPosition(IPosition placableEntity, PlacableEntities entityType,
             int movesApartFromEachother);
     }
 }

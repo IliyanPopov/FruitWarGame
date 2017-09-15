@@ -1,4 +1,4 @@
-﻿namespace FruitWarGame.Logic
+﻿namespace FruitWarGame.Logic.Concrete
 {
     using System;
     using Common;
@@ -45,7 +45,7 @@
             {
                 warrior.CurrentPosition = GetRandomPositionInGrid();
 
-                while (this._spawningValidator.ValidateFruitSpawningPosition(warrior.CurrentPosition,
+                while (this._spawningValidator.ValidateSpawningPosition(warrior.CurrentPosition,
                     PlacableEntities.Warrior, GlobalConstants.ThreePositionsApartFromEatchother))
                 {
                     warrior.CurrentPosition = GetRandomPositionInGrid();
@@ -77,7 +77,7 @@
             {
                 fruit.CurrentPosition = GetRandomPositionInGrid();
 
-                while (this._spawningValidator.ValidateFruitSpawningPosition(fruit.CurrentPosition,
+                while (this._spawningValidator.ValidateSpawningPosition(fruit.CurrentPosition,
                     PlacableEntities.Fruit, GlobalConstants.TwoPositionsApartFromEatchother))
                 {
                     fruit.CurrentPosition = GetRandomPositionInGrid();

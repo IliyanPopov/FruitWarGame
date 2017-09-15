@@ -1,4 +1,4 @@
-﻿namespace FruitWarGame.Logic
+﻿namespace FruitWarGame.Logic.Concrete
 {
     public enum PlacableEntities
     {
