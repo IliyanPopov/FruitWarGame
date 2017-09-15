@@ -9,5 +9,7 @@
         void UpdateGrid(IPosition position, char value);
 
         void Clear();
+
+        void ClearGridFromSymbols(char[] symbolsToRemoveFromGrid);
     }
 }

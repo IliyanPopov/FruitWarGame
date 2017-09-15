@@ -52,6 +52,7 @@
     <Compile Include="Essential\Position.cs" />
     <Compile Include="Factories\FruitFactory.cs" />
     <Compile Include="Factories\WarriorFactory.cs" />
+    <Compile Include="Fruits\AbstractFruit.cs" />
     <Compile Include="Fruits\Apple.cs" />
     <Compile Include="Fruits\Pear.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -12,20 +12,20 @@
     {
         private readonly ICollection<IFruit> _eatenFruits;
 
-        protected AbstractWarrior(int speedPoints, int powerPoints)
+        protected AbstractWarrior(int speedPoints, int powerPoints,char symbol)
         {
             this.SpeedPoints = speedPoints;
             this.PowerPoints = powerPoints;
             this._eatenFruits = new List<IFruit>();
+            this.Symbol = symbol;
         }
 
         protected int SpeedPoints { get; }
 
         protected int PowerPoints { get; }
 
-        public char PlayerSymbol { get; protected set; }
+        public char Symbol { get; }
 
-        //TODO figure out how to initialize this
         public IPosition CurrentPosition { get; set; }
 
         public int TotalSpeedPoints
@@ -50,16 +50,5 @@
         {
             
         }
-
-        //private IPosition FindPositionOfPlayerInGrid(IGameGrid gird)
-        //{
-        //    for (int i = 0; i < gird.Rows; i++)
-        //    {
-        //        for (int j = 0; j < gird.Cols; j++)
-        //        {
-        //            //
-        //        }
-        //    }
-        //}
     }
 }

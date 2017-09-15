@@ -4,10 +4,10 @@
 
     public interface IFruit : IBonusPowerPointsProvider, IBonusSpeedPointsProvider
     {
+        IPosition CurrentPosition { get; set; }
+
         char Symbol { get; }
 
-        bool IsEaten { get; }
-
-        IPosition CurrentPosition { get; set; }
+        bool IsEaten { get; }   
     }
 }

@@ -39,7 +39,7 @@
             int warriorCol = warrior.CurrentPosition.Col;
             ValidateCell(warriorRow, warriorCol);
 
-            this._grid[warriorRow, warriorCol] = warrior.PlayerSymbol;
+            this._grid[warriorRow, warriorCol] = warrior.Symbol;
         }
 
         public void PlaceFruit(IFruit fruit)

@@ -47,5 +47,22 @@
         {
             this._writer.Clear();
         }
+
+        public void ClearGridFromSymbols(char[] symbolsToRemoveFromGrid)
+        {
+            for (int i = 0; i < this._grid.Rows; i++)
+            {
+                for (int j = 0; j < this._grid.Cols; j++)
+                {
+                    foreach (var symbol in symbolsToRemoveFromGrid)
+                    {
+                        if (this._grid.GetCell(i, j) == symbol)
+                        {
+                            this._grid[i, j] = GlobalConstants.GridDefaultSymbol;
+                        }
+                    }
+                }
+            }
+        }
     }
 }

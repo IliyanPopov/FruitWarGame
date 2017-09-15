@@ -13,7 +13,6 @@
 
     public class GameInitializationStrategy : IGameInitializationStrategy
     {
-        private const char GridDefaultSymbol = '-';
         private const int InitialApplesCount = 4;
         private const int InitialPearsCount = 3;
 
@@ -22,20 +21,22 @@
         private readonly IFruitFactory _fruitFactory;
         private readonly IFruitRepository _fruitRepository;
         private readonly IGameGrid _grid;
+        private readonly IRenderer _renderer;
         private readonly IWarriorRepository _warriorRepository;
 
         public GameInitializationStrategy(IGameGrid gamegrid, IWarriorRepository warriorRepository,
-            IFruitRepository fruitRepository, IFruitFactory fruitFactory)
+            IFruitRepository fruitRepository, IFruitFactory fruitFactory, IRenderer renderer)
         {
             this._grid = gamegrid;
             this._warriorRepository = warriorRepository;
             this._fruitRepository = fruitRepository;
             this._fruitFactory = fruitFactory;
+            this._renderer = renderer;
         }
 
         public void Initialize()
         {
-            InitializeGrid(GridDefaultSymbol);
+            InitializeGrid(GlobalConstants.GridDefaultSymbol);
             CreateFruits();
 
             bool areFruitsPlaced = TryAddFruitsToGrid();
@@ -49,9 +50,6 @@
             {
                 areWarriorsPlaced = TryAddWarriorsToGrid();
             }
-
-           
-
         }
 
         private bool TryAddWarriorsToGrid()
@@ -71,9 +69,10 @@
             if (CurrentNumberOfWarriorsOnGrid() != GlobalConstants.NumberOfPlayers)
             {
                 // if this happens, than the random positions are bad, and all fruits cannot be placed correctly.
-                char[] warriorSymbols = this._warriorRepository.GetAll().Select(w => w.PlayerSymbol).Distinct().ToArray();
+                char[] warriorSymbols = this._warriorRepository.GetAll().Select(w => w.Symbol).Distinct()
+                    .ToArray();
 
-                ClearGridFromSymbols(warriorSymbols);
+                this._renderer.ClearGridFromSymbols(warriorSymbols);
                 return false;
             }
 
@@ -114,7 +113,7 @@
             {
                 // if this happens, than the random positions are bad, and all fruits cannot be placed correctly.
                 char[] fruitSymbols = this._fruitRepository.GetAll().Select(w => w.Symbol).Distinct().ToArray();
-                ClearGridFromSymbols(fruitSymbols);
+                this._renderer.ClearGridFromSymbols(fruitSymbols);
                 return false;
             }
 
@@ -130,6 +129,11 @@
             int stepChange = 0; // Steps count changes after 2 steps
             int positionX = fruit.CurrentPosition.Row;
             int positionY = fruit.CurrentPosition.Col;
+
+            if (this._grid[positionX,positionY] != GlobalConstants.GridDefaultSymbol)
+            {
+                return false;
+            }
 
             for (int i = 0; i < movesApartFromEachother; i++)
             {
@@ -191,7 +195,7 @@
         private int CurrentNumberOfWarriorsOnGrid()
         {
             int countOfWarriors = 0;
-            char[] warriorSymbols = this._warriorRepository.GetAll().Select(w => w.PlayerSymbol).Distinct().ToArray();
+            char[] warriorSymbols = this._warriorRepository.GetAll().Select(w => w.Symbol).Distinct().ToArray();
 
             for (int i = 0; i < this._grid.Rows; i++)
             {
@@ -232,23 +236,6 @@
             return countOfFruits;
         }
 
-        private void ClearGridFromSymbols(char[] symbolsToRemoveFromGrid)
-        {
-            for (int i = 0; i < this._grid.Rows; i++)
-            {
-                for (int j = 0; j < this._grid.Cols; j++)
-                {
-                    foreach (var symbol in symbolsToRemoveFromGrid)
-                    {
-                        if (this._grid.GetCell(i, j) == symbol)
-                        {
-                            this._grid[i, j] = GridDefaultSymbol;
-                        }
-                    }
-                }
-            }
-        }
-
         private bool ValidateWarriorSpawningPosition(IWarrior warrior, int movesApartFromEachother)
         {
             // maybe using an enum as third parameter will shrink 2 to 1 method only
@@ -258,6 +245,11 @@
             int stepChange = 0; // Steps count changes after 2 steps
             int positionX = warrior.CurrentPosition.Row;
             int positionY = warrior.CurrentPosition.Col;
+
+            if (this._grid[positionX, positionY] != GlobalConstants.GridDefaultSymbol)
+            {
+                return false;
+            }
 
             for (int i = 0; i < movesApartFromEachother; i++)
             {
@@ -337,8 +329,14 @@
             {
                 row = Random.Next(0, this._grid.Rows);
                 col = Random.Next(0, this._grid.Cols);
-            }
 
+                while (this._grid[row, col] != GlobalConstants.GridDefaultSymbol)
+                {
+                    row = Random.Next(0, this._grid.Rows);
+                    col = Random.Next(0, this._grid.Cols);
+                }
+            }
+         
             return new Position(row, col);
         }
     }

@@ -23,7 +23,7 @@
 
         public IWarrior GetWarriorBySymbol(char symbol)
         {
-            var warrior = this._warriors.FirstOrDefault(w => w.PlayerSymbol == symbol);
+            var warrior = this._warriors.FirstOrDefault(w => w.Symbol == symbol);
 
             if (warrior != null)
             {

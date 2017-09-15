@@ -2,6 +2,7 @@
 {
     public static class GlobalConstants
     {
+        public const char GridDefaultSymbol = '-';
         public const string Player1CreationMessage = "Player1, please choose a warrior.";
         public const string Player2CreationMessage = "Player2, please choose a warrior.";
 

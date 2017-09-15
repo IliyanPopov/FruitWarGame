@@ -1,26 +1,16 @@
 ﻿namespace FruitWarGame.Models.Fruits
 {
-    using Contracts.Essential;
     using Contracts.Fruits;
 
-    public class Apple : IFruit
+    public class Apple : AbstractFruit, IFruit
     {
         private const char AppleSymbol = 'A';
         private const int ApplePowerPointBonusValue = 1;
         private const int AppleSpeedPointBonusValue = 0;
 
         public Apple()
+            : base(AppleSpeedPointBonusValue, ApplePowerPointBonusValue, AppleSymbol)
         {
-            this.Symbol = AppleSymbol;
         }
-
-        public int PowerPointsBonus => ApplePowerPointBonusValue;
-
-        public int SpeedPointsBonus => AppleSpeedPointBonusValue;
-        public char Symbol { get; }
-
-        public bool IsEaten { get; }
-
-        public IPosition CurrentPosition { get; set; }
     }
 }

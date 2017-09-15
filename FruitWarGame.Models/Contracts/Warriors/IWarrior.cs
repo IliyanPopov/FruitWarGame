@@ -10,6 +10,6 @@
 
         int TotalPowerPoints { get; }
 
-        char PlayerSymbol { get; }
+        char Symbol { get; }
     }
 }
