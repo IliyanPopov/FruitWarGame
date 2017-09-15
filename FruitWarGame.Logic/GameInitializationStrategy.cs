@@ -1,14 +1,11 @@
 ﻿namespace FruitWarGame.Logic
 {
     using System;
-    using System.Linq;
     using Common;
     using Contracts;
     using Data.Contracts;
     using Models.Contracts.Essential;
     using Models.Contracts.Factories;
-    using Models.Contracts.Fruits;
-    using Models.Contracts.Warriors;
     using Models.Essential;
 
     public class GameInitializationStrategy : IGameInitializationStrategy
@@ -21,62 +18,41 @@
         private readonly IFruitFactory _fruitFactory;
         private readonly IFruitRepository _fruitRepository;
         private readonly IGameGrid _grid;
-        private readonly IRenderer _renderer;
+        private readonly ISpawningValidator _spawningValidator;
         private readonly IWarriorRepository _warriorRepository;
 
         public GameInitializationStrategy(IGameGrid gamegrid, IWarriorRepository warriorRepository,
-            IFruitRepository fruitRepository, IFruitFactory fruitFactory, IRenderer renderer)
+            IFruitRepository fruitRepository, IFruitFactory fruitFactory, ISpawningValidator spawningValidator)
         {
             this._grid = gamegrid;
             this._warriorRepository = warriorRepository;
             this._fruitRepository = fruitRepository;
             this._fruitFactory = fruitFactory;
-            this._renderer = renderer;
+            this._spawningValidator = spawningValidator;
         }
 
         public void Initialize()
         {
             InitializeGrid(GlobalConstants.GridDefaultSymbol);
             CreateFruits();
-
-            bool areFruitsPlaced = TryAddFruitsToGrid();
-            while (!areFruitsPlaced)
-            {
-                areFruitsPlaced = TryAddFruitsToGrid();
-            }
-
-            bool areWarriorsPlaced = TryAddWarriorsToGrid();
-            while (!areWarriorsPlaced)
-            {
-                areWarriorsPlaced = TryAddWarriorsToGrid();
-            }
+            AddFruitsToGrid();
+            AddWarriorsToGrid();
         }
 
-        private bool TryAddWarriorsToGrid()
+        private void AddWarriorsToGrid()
         {
             foreach (var warrior in this._warriorRepository)
             {
                 warrior.CurrentPosition = GetRandomPositionInGrid();
 
-                while (ValidateWarriorSpawningPosition(warrior, GlobalConstants.ThreePositionsApartFromEatchother))
+                while (this._spawningValidator.ValidateFruitSpawningPosition(warrior.CurrentPosition,
+                    PlacableEntities.Warrior, GlobalConstants.ThreePositionsApartFromEatchother))
                 {
                     warrior.CurrentPosition = GetRandomPositionInGrid();
                 }
 
                 this._grid.PlaceWarrior(warrior);
             }
-
-            if (CurrentNumberOfWarriorsOnGrid() != GlobalConstants.NumberOfPlayers)
-            {
-                // if this happens, than the random positions are bad, and all fruits cannot be placed correctly.
-                char[] warriorSymbols = this._warriorRepository.GetAll().Select(w => w.Symbol).Distinct()
-                    .ToArray();
-
-                this._renderer.ClearGridFromSymbols(warriorSymbols);
-                return false;
-            }
-
-            return true;
         }
 
 
@@ -95,218 +71,20 @@
             }
         }
 
-        private bool TryAddFruitsToGrid()
+        private void AddFruitsToGrid()
         {
             foreach (var fruit in this._fruitRepository)
             {
                 fruit.CurrentPosition = GetRandomPositionInGrid();
 
-                while (ValidateFruitSpawningPosition(fruit, GlobalConstants.TwoPositionsApartFromEatchother))
+                while (this._spawningValidator.ValidateFruitSpawningPosition(fruit.CurrentPosition,
+                    PlacableEntities.Fruit, GlobalConstants.TwoPositionsApartFromEatchother))
                 {
                     fruit.CurrentPosition = GetRandomPositionInGrid();
                 }
 
                 this._grid.PlaceFruit(fruit);
             }
-
-            if (CurrentNumberOfFruitssOnGrid() != InitialApplesCount + InitialPearsCount)
-            {
-                // if this happens, than the random positions are bad, and all fruits cannot be placed correctly.
-                char[] fruitSymbols = this._fruitRepository.GetAll().Select(w => w.Symbol).Distinct().ToArray();
-                this._renderer.ClearGridFromSymbols(fruitSymbols);
-                return false;
-            }
-
-            return true;
-        }
-
-        // kind of works
-        private bool ValidateFruitSpawningPosition(IFruit fruit, int movesApartFromEachother)
-        {
-            int direction = 0; // The initial direction is "down"
-            int stepsCount = 1; // Perform 1 step in current direction
-            int stepPosition = 0; // 0 steps already performed
-            int stepChange = 0; // Steps count changes after 2 steps
-            int positionX = fruit.CurrentPosition.Row;
-            int positionY = fruit.CurrentPosition.Col;
-
-            if (this._grid[positionX,positionY] != GlobalConstants.GridDefaultSymbol)
-            {
-                return false;
-            }
-
-            for (int i = 0; i < movesApartFromEachother; i++)
-            {
-                if (i == 0)
-                {
-                    stepPosition++;
-                }
-
-                else
-                {
-                    if (positionX >= 0 && positionX <= this._grid.Rows - 1 &&
-                        positionY >= 0 && positionY <= this._grid.Cols - 1)
-                    {
-                        if (this._grid[positionX, positionY] == GlobalConstants.AppleSymbol ||
-                            this._grid[positionX, positionY] == GlobalConstants.PearSymbol)
-                        {
-                            return true;
-                        }
-                    }
-
-                    // Check for direction / step changes
-                    if (stepPosition < stepsCount)
-                    {
-                        stepPosition++;
-                    }
-                    else
-                    {
-                        stepPosition = 1;
-                        if (stepChange == 1)
-                        {
-                            stepsCount++;
-                        }
-                        stepChange = (stepChange + 1) % 2;
-                        direction = (direction + 1) % 4;
-                    }
-                }
-
-                // Move to the next cell in the current direction
-                switch (direction)
-                {
-                    case 0:
-                        positionY++;
-                        break;
-                    case 1:
-                        positionX--;
-                        break;
-                    case 2:
-                        positionY--;
-                        break;
-                    case 3:
-                        positionX++;
-                        break;
-                }
-            }
-
-            return false;
-        }
-
-        private int CurrentNumberOfWarriorsOnGrid()
-        {
-            int countOfWarriors = 0;
-            char[] warriorSymbols = this._warriorRepository.GetAll().Select(w => w.Symbol).Distinct().ToArray();
-
-            for (int i = 0; i < this._grid.Rows; i++)
-            {
-                for (int j = 0; j < this._grid.Cols; j++)
-                {
-                    foreach (var symbol in warriorSymbols)
-                    {
-                        if (this._grid.GetCell(i, j) == symbol)
-                        {
-                            countOfWarriors++;
-                        }
-                    }
-                }
-            }
-
-            return countOfWarriors;
-        }
-
-        private int CurrentNumberOfFruitssOnGrid()
-        {
-            int countOfFruits = 0;
-            char[] fruitSymbols = this._fruitRepository.GetAll().Select(w => w.Symbol).Distinct().ToArray();
-
-            for (int i = 0; i < this._grid.Rows; i++)
-            {
-                for (int j = 0; j < this._grid.Cols; j++)
-                {
-                    foreach (var symbol in fruitSymbols)
-                    {
-                        if (this._grid.GetCell(i, j) == symbol)
-                        {
-                            countOfFruits++;
-                        }
-                    }
-                }
-            }
-
-            return countOfFruits;
-        }
-
-        private bool ValidateWarriorSpawningPosition(IWarrior warrior, int movesApartFromEachother)
-        {
-            // maybe using an enum as third parameter will shrink 2 to 1 method only
-            int direction = 0; // The initial direction is "down"
-            int stepsCount = 1; // Perform 1 step in current direction
-            int stepPosition = 0; // 0 steps already performed
-            int stepChange = 0; // Steps count changes after 2 steps
-            int positionX = warrior.CurrentPosition.Row;
-            int positionY = warrior.CurrentPosition.Col;
-
-            if (this._grid[positionX, positionY] != GlobalConstants.GridDefaultSymbol)
-            {
-                return false;
-            }
-
-            for (int i = 0; i < movesApartFromEachother; i++)
-            {
-                if (i == 0)
-                {
-                    stepPosition++;
-                }
-
-                else
-                {
-                    if (positionX >= 0 && positionX <= this._grid.Rows - 1 &&
-                        positionY >= 0 && positionY <= this._grid.Cols - 1)
-                    {
-                        if (
-                            this._grid[positionX, positionY] == GlobalConstants.Player1Symbol ||
-                            this._grid[positionX, positionY] == GlobalConstants.Player2Symbol)
-                        {
-                            return true;
-                        }
-                    }
-
-                    // Check for direction / step changes
-                    if (stepPosition < stepsCount)
-                    {
-                        stepPosition++;
-                    }
-                    else
-                    {
-                        stepPosition = 1;
-                        if (stepChange == 1)
-                        {
-                            stepsCount++;
-                        }
-                        stepChange = (stepChange + 1) % 2;
-                        direction = (direction + 1) % 4;
-                    }
-                }
-
-                // Move to the next cell in the current direction
-                switch (direction)
-                {
-                    case 0:
-                        positionY++;
-                        break;
-                    case 1:
-                        positionX--;
-                        break;
-                    case 2:
-                        positionY--;
-                        break;
-                    case 3:
-                        positionX++;
-                        break;
-                }
-            }
-
-            return false;
         }
 
         private void InitializeGrid(char symbol)
@@ -336,7 +114,7 @@
                     col = Random.Next(0, this._grid.Cols);
                 }
             }
-         
+
             return new Position(row, col);
         }
     }

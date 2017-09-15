@@ -25,6 +25,7 @@
             Bind<IWarriorRepository>().To<WarriorRepository>().InSingletonScope();
 
             Bind<IGameInitializationStrategy>().To<GameInitializationStrategy>().InSingletonScope();
+            Bind<ISpawningValidator>().To<SpawningValidator>().InSingletonScope();
 
             Bind<IGameGrid>().To<GameGrid>().InSingletonScope();
             Bind<IPosition>().To<Position>().InSingletonScope();
