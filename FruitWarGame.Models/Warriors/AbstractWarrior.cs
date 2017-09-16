@@ -2,17 +2,15 @@
 {
     using System.Collections.Generic;
     using System.Linq;
-    using Contracts;
     using Contracts.Essential;
     using Contracts.Fruits;
     using Contracts.Warriors;
-    using Essential;
 
     public abstract class AbstractWarrior : IWarrior
     {
         private readonly ICollection<IFruit> _eatenFruits;
 
-        protected AbstractWarrior(int speedPoints, int powerPoints,char symbol)
+        protected AbstractWarrior(int speedPoints, int powerPoints, char symbol)
         {
             this.SpeedPoints = speedPoints;
             this.PowerPoints = powerPoints;
@@ -45,11 +43,6 @@
                 fruit.IsEaten = true;
                 this._eatenFruits.Add(fruit);
             }
-        }
-
-        public void MakeTurn(IGameGrid grid)
-        {
-            
         }
     }
 }

@@ -51,19 +51,9 @@
             this._grid[fruitRow, fruitCol] = fruit.Symbol;
         }
 
-        public char GetCell(IPosition position)
-        {
-            return this._grid[position.Row, position.Col];
-        }
-
         public char GetCell(int row, int col)
         {
             return this._grid[row, col];
-        }
-
-        public void SetCell(IPosition position, char value)
-        {
-            this._grid[position.Row, position.Col] = value;
         }
 
         public void SetCell(int row, int col, char value)

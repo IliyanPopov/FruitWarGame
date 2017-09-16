@@ -39,22 +39,16 @@
             AddWarriorsToGrid();
         }
 
-        private void AddWarriorsToGrid()
+        private void InitializeGrid(char symbol)
         {
-            foreach (var warrior in this._warriorRepository)
+            for (int row = 0; row < this._grid.Rows; row++)
             {
-                warrior.CurrentPosition = GetRandomPositionInGrid();
-
-                while (this._spawningValidator.ValidateSpawningPosition(warrior.CurrentPosition,
-                    PlacableEntities.Warrior, GlobalConstants.ThreePositionsApartFromEatchother))
+                for (int col = 0; col < this._grid.Cols; col++)
                 {
-                    warrior.CurrentPosition = GetRandomPositionInGrid();
+                    this._grid.SetCell(row, col, symbol);
                 }
-
-                this._grid.PlaceWarrior(warrior);
             }
         }
-
 
         private void CreateFruits()
         {
@@ -70,6 +64,7 @@
                 this._fruitRepository.AddFruit(pear);
             }
         }
+
 
         private void AddFruitsToGrid()
         {
@@ -87,14 +82,19 @@
             }
         }
 
-        private void InitializeGrid(char symbol)
+        private void AddWarriorsToGrid()
         {
-            for (int row = 0; row < this._grid.Rows; row++)
+            foreach (var warrior in this._warriorRepository)
             {
-                for (int col = 0; col < this._grid.Cols; col++)
+                warrior.CurrentPosition = GetRandomPositionInGrid();
+
+                while (this._spawningValidator.ValidateSpawningPosition(warrior.CurrentPosition,
+                    PlacableEntities.Warrior, GlobalConstants.ThreePositionsApartFromEatchother))
                 {
-                    this._grid.SetCell(row, col, symbol);
+                    warrior.CurrentPosition = GetRandomPositionInGrid();
                 }
+
+                this._grid.PlaceWarrior(warrior);
             }
         }
 

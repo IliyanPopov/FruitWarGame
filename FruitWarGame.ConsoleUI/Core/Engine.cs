@@ -91,14 +91,42 @@
             }
         }
 
-        private void ProcessInvalidDirectionException(ArgumentException e)
+        private IWarrior CreateWarrior(char warriorSymbol, string playerCreationMessage,
+            string availableWarriorsMessage)
         {
-            this._writer.WriteLine(Environment.NewLine);
-            this._writer.WriteLine(e.Message);
-            Thread.Sleep(2500);
-            this._renderer.Clear();
-            this._renderer.RenderGrid();
-            this._writer.WriteLine(GetAllPlayersStats());
+            this._writer.WriteLine(playerCreationMessage);
+            this._writer.WriteLine(availableWarriorsMessage);
+            IWarrior playerWarrior = null;
+
+            while (playerWarrior == null)
+            {
+                try
+                {
+                    int playerWarriorTpye;
+                    bool isParseSuccessfull = int.TryParse(this._reader.ReadLine(), out playerWarriorTpye);
+                    if (!isParseSuccessfull)
+                    {
+                        throw new ArgumentException();
+                    }
+                    playerWarrior = this._warriorFactory.CreateWarrior(warriorSymbol, playerWarriorTpye);
+                }
+
+                catch (NotImplementedException e)
+                {
+                    Console.WriteLine($"{e.Message}");
+                    Thread.Sleep(2000);
+                    this._renderer.Clear();
+                }
+
+                catch (ArgumentException)
+                {
+                    Console.WriteLine($"Wrong input!");
+                    Thread.Sleep(2000);
+                    this._renderer.Clear();
+                }
+            }
+
+            return playerWarrior;
         }
 
         private void MovePlayerDependingOnSpeedPoints(IWarrior playerwarrior, string makeMoveMessage)
@@ -169,7 +197,6 @@
                 ProcessEndGame();
             }
 
-
             // update grid old warriors position to default symbol
             this._grid.SetCell(warrior.CurrentPosition.Row, warrior.CurrentPosition.Col,
                 GlobalConstants.GridDefaultSymbol);
@@ -182,6 +209,15 @@
 
             this._renderer.Clear();
             this._renderer.RenderGrid();
+        }
+
+
+        private IFruit GetFruitByPosition(int positionX, int positionY)
+        {
+            var fruit = this._fruitRepository.FirstOrDefault(f => f.CurrentPosition.Row == positionX &&
+                                                                  f.CurrentPosition.Col == positionY);
+
+            return fruit;
         }
 
         private void ProcessEndGame()
@@ -209,6 +245,18 @@
             ProcessRestartGame();
         }
 
+        private string GetFinishingStatsForWarrior(IWarrior warrior, char playerNumber)
+        {
+            var warriorTypeName = warrior.GetType().Name;
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine(Environment.NewLine);
+            sb.AppendLine(
+                $"Player {playerNumber} wins the game.");
+            sb.AppendLine(
+                $"{warriorTypeName} with Power: {warrior.TotalPowerPoints}, Speed: {warrior.TotalSpeedPoints}");
+            return sb.ToString();
+        }
+
         private void ProcessRestartGame()
         {
             this._writer.WriteLine("Do you want to start a rematch? (y/n)");
@@ -234,6 +282,17 @@
             }
         }
 
+        private void ProcessInvalidDirectionException(ArgumentException e)
+        {
+            this._writer.WriteLine(Environment.NewLine);
+            this._writer.WriteLine(e.Message);
+            Thread.Sleep(2500);
+            this._renderer.Clear();
+            this._renderer.RenderGrid();
+            this._writer.WriteLine(GetAllPlayersStats());
+        }
+
+
         private string GetAllPlayersStats()
         {
             StringBuilder sb = new StringBuilder();
@@ -246,64 +305,6 @@
             }
 
             return sb.ToString();
-        }
-
-        private string GetFinishingStatsForWarrior(IWarrior warrior, char playerNumber)
-        {
-            var warriorTypeName = warrior.GetType().Name;
-            StringBuilder sb = new StringBuilder();
-            sb.AppendLine(Environment.NewLine);
-            sb.AppendLine(
-                $"Player {playerNumber} wins the game.");
-            sb.AppendLine(
-                $"{warriorTypeName} with Power: {warrior.TotalPowerPoints}, Speed: {warrior.TotalSpeedPoints}");
-            return sb.ToString();
-        }
-
-        private IFruit GetFruitByPosition(int positionX, int positionY)
-        {
-            var fruit = this._fruitRepository.FirstOrDefault(f => f.CurrentPosition.Row == positionX &&
-                                                                  f.CurrentPosition.Col == positionY);
-
-            return fruit;
-        }
-
-        private IWarrior CreateWarrior(char warriorSymbol, string playerCreationMessage,
-            string availableWarriorsMessage)
-        {
-            this._writer.WriteLine(playerCreationMessage);
-            this._writer.WriteLine(availableWarriorsMessage);
-            IWarrior playerWarrior = null;
-
-            while (playerWarrior == null)
-            {
-                try
-                {
-                    int playerWarriorTpye;
-                    bool isParseSuccessfull = int.TryParse(this._reader.ReadLine(), out playerWarriorTpye);
-                    if (!isParseSuccessfull)
-                    {
-                        throw new ArgumentException();
-                    }
-                    playerWarrior = this._warriorFactory.CreateWarrior(warriorSymbol, playerWarriorTpye);
-                }
-
-                catch (NotImplementedException e)
-                {
-                    Console.WriteLine($"{e.Message}");
-                    Thread.Sleep(2000);
-                    this._renderer.Clear();
-                }
-
-                catch (ArgumentException)
-                {
-                    Console.WriteLine($"Wrong input!");
-                    Thread.Sleep(2000);
-                    this._renderer.Clear();
-                }
-            }
-
-            return playerWarrior;
         }
     }
 }
