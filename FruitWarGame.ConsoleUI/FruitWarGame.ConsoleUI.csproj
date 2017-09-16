@@ -49,7 +49,7 @@
     <Compile Include="ConsoleIO\ConsoleWriter.cs" />
     <Compile Include="Contracts\ConsoleIO\IReader.cs" />
     <Compile Include="Contracts\ConsoleIO\IWriter.cs" />
-    <Compile Include="ConsoleRenderer.cs" />
+    <Compile Include="ConsoleIO\ConsoleRenderer.cs" />
     <Compile Include="Core\Engine.cs" />
     <Compile Include="IoC\FruitWarModule.cs" />
     <Compile Include="Startup.cs" />

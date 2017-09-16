@@ -12,5 +12,7 @@
         IFruit GetFruitBySymbol(char symbol);
 
         IQueryable<IFruit> GetAll();
+
+        void RemoveAll();
     }
 }

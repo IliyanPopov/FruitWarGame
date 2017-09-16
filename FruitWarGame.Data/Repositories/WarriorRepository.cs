@@ -38,6 +38,11 @@
             return this._warriors.AsQueryable();
         }
 
+        public void RemoveAll()
+        {
+            this._warriors.Clear();
+        }
+
         public IEnumerator<IWarrior> GetEnumerator()
         {
             return this._warriors.GetEnumerator();

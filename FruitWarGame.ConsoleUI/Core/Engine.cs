@@ -53,7 +53,7 @@
             this._warriorRepository.AddWarrior(player1Warrior);
             this._warriorRepository.AddWarrior(player2Warrior);
 
-            this._writer.Clear();
+            this._renderer.Clear();
             this._gameInitializationStrategy.Initialize();
             this._renderer.RenderGrid();
             this._writer.WriteLine(GetAllPlayersStats());
@@ -65,16 +65,40 @@
                 if (playerTurns % 2 == 0)
                 {
                     // first player makes turn
-                    MovePlayerDependingOnSpeedPoints(player1Warrior, GlobalConstants.Player1MakeMoveMessage);
+                    try
+                    {
+                        MovePlayerDependingOnSpeedPoints(player1Warrior, GlobalConstants.Player1MakeMoveMessage);
+                        playerTurns++;
+                    }
+                    catch (ArgumentException e)
+                    {
+                        ProcessInvalidDirectionException(e);
+                    }
                 }
                 if (playerTurns % 2 == 1)
                 {
                     // second player turns player makes turn
-                    MovePlayerDependingOnSpeedPoints(player2Warrior, GlobalConstants.Player2MakeMoveMessage);
+                    try
+                    {
+                        MovePlayerDependingOnSpeedPoints(player2Warrior, GlobalConstants.Player2MakeMoveMessage);
+                        playerTurns++;
+                    }
+                    catch (ArgumentException e)
+                    {
+                        ProcessInvalidDirectionException(e);
+                    }
                 }
-
-                playerTurns++;
             }
+        }
+
+        private void ProcessInvalidDirectionException(ArgumentException e)
+        {
+            this._writer.WriteLine(Environment.NewLine);
+            this._writer.WriteLine(e.Message);
+            Thread.Sleep(2500);
+            this._renderer.Clear();
+            this._renderer.RenderGrid();
+            this._writer.WriteLine(GetAllPlayersStats());
         }
 
         private void MovePlayerDependingOnSpeedPoints(IWarrior playerwarrior, string makeMoveMessage)
@@ -128,7 +152,7 @@
                     }
                     break;
                 default:
-                    throw new ArgumentException("Direction is not supported!");
+                    throw new ArgumentException("Direction is not supported. Please use the arrow keys to navigate!");
             }
 
             if (this._grid.GetCell(positionX, positionY) == GlobalConstants.AppleSymbol ||
@@ -139,19 +163,75 @@
                 warrior.EatFruit(fruit);
             }
 
+            if (this._grid.GetCell(positionX, positionY) == GlobalConstants.Player1Symbol ||
+                this._grid.GetCell(positionX, positionY) == GlobalConstants.Player2Symbol)
+            {
+                ProcessEndGame();
+            }
+
+
             // update grid old warriors position to default symbol
             this._grid.SetCell(warrior.CurrentPosition.Row, warrior.CurrentPosition.Col,
                 GlobalConstants.GridDefaultSymbol);
 
             //update grid to new warrior's position
-
             warrior.CurrentPosition.Row = positionX;
             warrior.CurrentPosition.Col = positionY;
 
             this._grid.SetCell(warrior.CurrentPosition.Row, warrior.CurrentPosition.Col, warrior.Symbol);
 
-            this._writer.Clear();
+            this._renderer.Clear();
             this._renderer.RenderGrid();
+        }
+
+        private void ProcessEndGame()
+        {
+            IWarrior warrior1 = this._warriorRepository.GetAll()
+                .FirstOrDefault(w => w.Symbol == GlobalConstants.Player1Symbol);
+
+            IWarrior warrior2 = this._warriorRepository.GetAll()
+                .FirstOrDefault(w => w.Symbol == GlobalConstants.Player2Symbol);
+
+            if (warrior1.TotalPowerPoints > warrior2.TotalPowerPoints)
+            {
+                this._writer.WriteLine(GetFinishingStatsForWarrior(warrior1, GlobalConstants.Player1Symbol));
+            }
+            else if (warrior1.TotalPowerPoints < warrior2.TotalPowerPoints)
+            {
+                this._writer.WriteLine(GetFinishingStatsForWarrior(warrior1, GlobalConstants.Player2Symbol));
+            }
+            else
+            {
+                this._writer.WriteLine(Environment.NewLine);
+                this._writer.WriteLine("Draw game.");
+            }
+
+            ProcessRestartGame();
+        }
+
+        private void ProcessRestartGame()
+        {
+            this._writer.WriteLine("Do you want to start a rematch? (y/n)");
+            string answer = this._reader.ReadLine().ToLower();
+
+            switch (answer)
+            {
+                case "y":
+                    this._renderer.Clear();
+                    this._warriorRepository.RemoveAll();
+                    this._fruitRepository.RemoveAll();
+                    Run();
+                    break;
+                case "n":
+                    Environment.Exit(0);
+                    break;
+                default:
+                    this._writer.WriteLine("Unsuported symbol!");
+                    this._writer.WriteLine("Quiting game...");
+                    Thread.Sleep(1000);
+                    Environment.Exit(0);
+                    break;
+            }
         }
 
         private string GetAllPlayersStats()
@@ -165,6 +245,18 @@
                 i++;
             }
 
+            return sb.ToString();
+        }
+
+        private string GetFinishingStatsForWarrior(IWarrior warrior, char playerNumber)
+        {
+            var warriorTypeName = warrior.GetType().Name;
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine(Environment.NewLine);
+            sb.AppendLine(
+                $"Player {playerNumber} wins the game.");
+            sb.AppendLine(
+                $"{warriorTypeName} with Power: {warrior.TotalPowerPoints}, Speed: {warrior.TotalSpeedPoints}");
             return sb.ToString();
         }
 
@@ -200,14 +292,14 @@
                 {
                     Console.WriteLine($"{e.Message}");
                     Thread.Sleep(2000);
-                    this._writer.Clear();
+                    this._renderer.Clear();
                 }
 
                 catch (ArgumentException)
                 {
                     Console.WriteLine($"Wrong input!");
                     Thread.Sleep(2000);
-                    this._writer.Clear();
+                    this._renderer.Clear();
                 }
             }
 

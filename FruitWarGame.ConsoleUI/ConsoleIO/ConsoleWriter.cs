@@ -14,10 +14,5 @@
         {
             Console.WriteLine(text);
         }
-
-        public void Clear()
-        {
-            Console.Clear();
-        }
     }
 }

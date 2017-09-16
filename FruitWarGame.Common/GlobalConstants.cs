@@ -26,6 +26,5 @@
         // for 4 position difference i  = 81
         public const int TwoPositionsApartFromEatchother = 9;
         public const int ThreePositionsApartFromEatchother = 25;
-        // public const int FourPositionsApartFromEatchother = 49;
     }
 }

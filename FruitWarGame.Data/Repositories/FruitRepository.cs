@@ -9,21 +9,21 @@
 
     public class FruitRepository : IFruitRepository
     {
-        private readonly HashSet<IFruit> _fruitsPlacedOnGameBoard;
+        private readonly HashSet<IFruit> _fruits;
 
         public FruitRepository()
         {
-            this._fruitsPlacedOnGameBoard = new HashSet<IFruit>();
+            this._fruits = new HashSet<IFruit>();
         }
 
         public void AddFruit(IFruit fruit)
         {
-            this._fruitsPlacedOnGameBoard.Add(fruit);
+            this._fruits.Add(fruit);
         }
 
         public IFruit GetFruitBySymbol(char symbol)
         {
-            var fruit = this._fruitsPlacedOnGameBoard.FirstOrDefault(f => f.Symbol == symbol);
+            var fruit = this._fruits.FirstOrDefault(f => f.Symbol == symbol);
 
             if (fruit != null)
             {
@@ -35,12 +35,17 @@
 
         IQueryable<IFruit> IFruitRepository.GetAll()
         {
-            return this._fruitsPlacedOnGameBoard.AsQueryable();
+            return this._fruits.AsQueryable();
+        }
+
+        public void RemoveAll()
+        {
+            this._fruits.Clear();
         }
 
         public IEnumerator<IFruit> GetEnumerator()
         {
-            return this._fruitsPlacedOnGameBoard.GetEnumerator();
+            return this._fruits.GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()

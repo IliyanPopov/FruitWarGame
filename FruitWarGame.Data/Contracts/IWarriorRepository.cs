@@ -11,5 +11,7 @@
         IWarrior GetWarriorBySymbol(char symbol);
 
         IQueryable<IWarrior> GetAll();
+
+        void RemoveAll();
     }
 }
