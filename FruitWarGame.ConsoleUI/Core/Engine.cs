@@ -85,44 +85,25 @@
             {
                 this._writer.WriteLine(makeMoveMessage);
                 var direction = Console.ReadKey();
-                MoveWarrior(playerwarrior, direction);
+                MoveWarriorInDirection(playerwarrior, direction);
                 this._writer.WriteLine(GetAllPlayersStats());
             }
         }
 
-        private void MoveWarrior(IWarrior warrior, ConsoleKeyInfo key)
+        private void MoveWarriorInDirection(IWarrior warrior, ConsoleKeyInfo direction)
         {
-            //find player's coordinates in grid, based on his symbol
             int positionX = warrior.CurrentPosition.Row;
             int positionY = warrior.CurrentPosition.Col;
-
-            //move in decired direction in swich case, based on input
-            // and update grid  with new data
-            switch (key.Key)
+            switch (direction.Key)
             {
                 case ConsoleKey.UpArrow:
                     positionX = (warrior.CurrentPosition.Row - 1) % (this._grid.Rows);
+
                     if (positionX < 0)
                     {
                         positionX = this._grid.Rows - 1;
                     }
 
-
-                    if (this._grid.GetCell(positionX, positionY) == GlobalConstants.AppleSymbol ||
-                        this._grid.GetCell(positionX, positionY) == GlobalConstants.PearSymbol)
-                    {
-                        var fruit = GetFruitByPosition(positionX, positionY);
-
-                        warrior.EatFruit(fruit);
-                    }
-
-                    // update grid old warriors position to default symbol
-                    this._grid.SetCell(warrior.CurrentPosition.Row, warrior.CurrentPosition.Col,
-                        GlobalConstants.GridDefaultSymbol);
-
-                    //update grid to new warrior's position
-                    warrior.CurrentPosition.Row = positionX;
-                    this._grid.SetCell(warrior.CurrentPosition.Row, warrior.CurrentPosition.Col, warrior.Symbol);
                     break;
                 case ConsoleKey.DownArrow:
                     positionX = (warrior.CurrentPosition.Row + 1) % (this._grid.Rows);
@@ -130,23 +111,6 @@
                     {
                         positionX = 0;
                     }
-
-
-                    if (this._grid.GetCell(positionX, positionY) == GlobalConstants.AppleSymbol ||
-                        this._grid.GetCell(positionX, positionY) == GlobalConstants.PearSymbol)
-                    {
-                        var fruit = GetFruitByPosition(positionX, positionY);
-
-                        warrior.EatFruit(fruit);
-                    }
-
-                    // update grid old warriors position to default symbol
-                    this._grid.SetCell(warrior.CurrentPosition.Row, warrior.CurrentPosition.Col,
-                        GlobalConstants.GridDefaultSymbol);
-
-                    //update grid to new warrior's position
-                    warrior.CurrentPosition.Row = positionX;
-                    this._grid.SetCell(warrior.CurrentPosition.Row, warrior.CurrentPosition.Col, warrior.Symbol);
                     break;
                 case ConsoleKey.LeftArrow:
                     positionY = (warrior.CurrentPosition.Col - 1) % this._grid.Cols;
@@ -155,22 +119,6 @@
                         positionY = this._grid.Cols - 1;
                     }
 
-
-                    if (this._grid.GetCell(positionX, positionY) == GlobalConstants.AppleSymbol ||
-                        this._grid.GetCell(positionX, positionY) == GlobalConstants.PearSymbol)
-                    {
-                        var fruit = GetFruitByPosition(positionX, positionY);
-
-                        warrior.EatFruit(fruit);
-                    }
-
-                    // update grid old warriors position to default symbol
-                    this._grid.SetCell(warrior.CurrentPosition.Row, warrior.CurrentPosition.Col,
-                        GlobalConstants.GridDefaultSymbol);
-
-                    //update grid to new warrior's position
-                    warrior.CurrentPosition.Col = positionY;
-                    this._grid.SetCell(warrior.CurrentPosition.Row, warrior.CurrentPosition.Col, warrior.Symbol);
                     break;
                 case ConsoleKey.RightArrow:
                     positionY = (warrior.CurrentPosition.Col + 1) % this._grid.Cols;
@@ -178,32 +126,32 @@
                     {
                         positionY = 0;
                     }
-
-
-                    if (this._grid.GetCell(positionX, positionY) == GlobalConstants.AppleSymbol ||
-                        this._grid.GetCell(positionX, positionY) == GlobalConstants.PearSymbol)
-                    {
-                        var fruit = GetFruitByPosition(positionX, positionY);
-
-                        warrior.EatFruit(fruit);
-                    }
-
-                    // update grid old warriors position to default symbol
-                    this._grid.SetCell(warrior.CurrentPosition.Row, warrior.CurrentPosition.Col,
-                        GlobalConstants.GridDefaultSymbol);
-
-                    //update grid to new warrior's position
-                    warrior.CurrentPosition.Col = positionY;
-                    this._grid.SetCell(warrior.CurrentPosition.Row, warrior.CurrentPosition.Col, warrior.Symbol);
                     break;
                 default:
-                    throw new ArgumentException("Moving direction is not supported!");
+                    throw new ArgumentException("Direction is not supported!");
             }
+
+            if (this._grid.GetCell(positionX, positionY) == GlobalConstants.AppleSymbol ||
+                this._grid.GetCell(positionX, positionY) == GlobalConstants.PearSymbol)
+            {
+                var fruit = GetFruitByPosition(positionX, positionY);
+
+                warrior.EatFruit(fruit);
+            }
+
+            // update grid old warriors position to default symbol
+            this._grid.SetCell(warrior.CurrentPosition.Row, warrior.CurrentPosition.Col,
+                GlobalConstants.GridDefaultSymbol);
+
+            //update grid to new warrior's position
+
+            warrior.CurrentPosition.Row = positionX;
+            warrior.CurrentPosition.Col = positionY;
+
+            this._grid.SetCell(warrior.CurrentPosition.Row, warrior.CurrentPosition.Col, warrior.Symbol);
 
             this._writer.Clear();
             this._renderer.RenderGrid();
-
-            //somehow figure out where to put if the exit game conditions are met
         }
 
         private string GetAllPlayersStats()
