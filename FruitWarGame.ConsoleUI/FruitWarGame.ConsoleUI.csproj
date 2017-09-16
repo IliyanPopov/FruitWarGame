@@ -47,8 +47,8 @@
   <ItemGroup>
     <Compile Include="ConsoleIO\ConsoleReader.cs" />
     <Compile Include="ConsoleIO\ConsoleWriter.cs" />
-    <Compile Include="ConsoleIO\Contracts\IReader.cs" />
-    <Compile Include="ConsoleIO\Contracts\IWriter.cs" />
+    <Compile Include="Contracts\ConsoleIO\IReader.cs" />
+    <Compile Include="Contracts\ConsoleIO\IWriter.cs" />
     <Compile Include="ConsoleRenderer.cs" />
     <Compile Include="Engine.cs" />
     <Compile Include="IoC\FruitWarModule.cs" />
@@ -77,8 +77,6 @@
       <Name>FruitWarGame.Models</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Contracts\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

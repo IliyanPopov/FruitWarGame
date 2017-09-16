@@ -1,7 +1,7 @@
 ﻿namespace FruitWarGame.ConsoleUI.IoC
 {
     using ConsoleIO;
-    using ConsoleIO.Contracts;
+    using Contracts.ConsoleIO;
     using Data.Contracts;
     using Data.Repositories;
     using Logic;

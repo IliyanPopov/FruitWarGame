@@ -1,4 +1,4 @@
-﻿namespace FruitWarGame.ConsoleUI.ConsoleIO.Contracts
+﻿namespace FruitWarGame.ConsoleUI.Contracts.ConsoleIO
 {
     public interface IWriter
     {

@@ -5,7 +5,7 @@
     using System.Text;
     using System.Threading;
     using Common;
-    using ConsoleIO.Contracts;
+    using Contracts.ConsoleIO;
     using Data.Contracts;
     using Logic.Contracts;
     using Models.Contracts.Essential;
@@ -62,7 +62,6 @@
             int playerTurns = 0;
             while (true)
             {
-                //    var direction = Console.ReadKey();
                 if (playerTurns % 2 == 0)
                 {
                     // first player makes turn
@@ -235,6 +234,7 @@
                     this._writer.Clear();
                 }
             }
+
             return playerWarrior;
         }
     }

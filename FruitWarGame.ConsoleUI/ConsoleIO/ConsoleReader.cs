@@ -1,7 +1,7 @@
 ﻿namespace FruitWarGame.ConsoleUI.ConsoleIO
 {
     using System;
-    using Contracts;
+    using ConsoleUI.Contracts.ConsoleIO;
 
     public class ConsoleReader : IReader
     {

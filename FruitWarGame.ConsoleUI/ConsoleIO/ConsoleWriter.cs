@@ -1,7 +1,7 @@
 ﻿namespace FruitWarGame.ConsoleUI.ConsoleIO
 {
     using System;
-    using Contracts;
+    using Contracts.ConsoleIO;
 
     public class ConsoleWriter : IWriter
     {
