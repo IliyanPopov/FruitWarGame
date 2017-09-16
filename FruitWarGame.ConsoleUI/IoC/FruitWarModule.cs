@@ -2,6 +2,7 @@
 {
     using ConsoleIO;
     using Contracts.ConsoleIO;
+    using Core;
     using Data.Contracts;
     using Data.Repositories;
     using Logic;

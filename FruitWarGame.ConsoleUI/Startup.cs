@@ -1,5 +1,6 @@
 ﻿namespace FruitWarGame.ConsoleUI
 {
+    using Core;
     using IoC;
     using Ninject;
 
