@@ -1,0 +1,10 @@
+C:\Users\Gabriel\Documents\Visual Studio 2017\Projects\FruitWarGame\FruitWarGame.Data\bin\Debug\FruitWarGame.Data.dll
+C:\Users\Gabriel\Documents\Visual Studio 2017\Projects\FruitWarGame\FruitWarGame.Data\bin\Debug\FruitWarGame.Data.pdb
+C:\Users\Gabriel\Documents\Visual Studio 2017\Projects\FruitWarGame\FruitWarGame.Data\bin\Debug\FruitWarGame.Common.dll
+C:\Users\Gabriel\Documents\Visual Studio 2017\Projects\FruitWarGame\FruitWarGame.Data\bin\Debug\FruitWarGame.Models.dll
+C:\Users\Gabriel\Documents\Visual Studio 2017\Projects\FruitWarGame\FruitWarGame.Data\bin\Debug\FruitWarGame.Common.pdb
+C:\Users\Gabriel\Documents\Visual Studio 2017\Projects\FruitWarGame\FruitWarGame.Data\bin\Debug\FruitWarGame.Models.pdb
+C:\Users\Gabriel\Documents\Visual Studio 2017\Projects\FruitWarGame\FruitWarGame.Data\obj\Debug\FruitWarGame.Data.csprojResolveAssemblyReference.cache
+C:\Users\Gabriel\Documents\Visual Studio 2017\Projects\FruitWarGame\FruitWarGame.Data\obj\Debug\FruitWarGame.Data.csproj.CoreCompileInputs.cache
+C:\Users\Gabriel\Documents\Visual Studio 2017\Projects\FruitWarGame\FruitWarGame.Data\obj\Debug\FruitWarGame.Data.dll
+C:\Users\Gabriel\Documents\Visual Studio 2017\Projects\FruitWarGame\FruitWarGame.Data\obj\Debug\FruitWarGame.Data.pdb
