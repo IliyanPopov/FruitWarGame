@@ -9,7 +9,6 @@
         public const string Player2MakeMoveMessage = "Player2, make a move please!";
         public const string ChooseWarriorsMessage = "Insert 1 for turtle / 2 for monkey / 3 for pigeon";
 
-        public const int NumberOfPlayers = 2;
         public const char Player1Symbol = '1';
         public const char Player2Symbol = '2';
 
