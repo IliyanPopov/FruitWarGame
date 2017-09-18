@@ -7,7 +7,7 @@
     using Contracts;
     using Models.Contracts.Warriors;
 
-    public class WarriorRepository : IWarriorRepository
+    public sealed class WarriorRepository : IWarriorRepository
     {
         private readonly HashSet<IWarrior> _warriors;
 

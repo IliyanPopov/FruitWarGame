@@ -7,7 +7,7 @@
     using Contracts;
     using Models.Contracts.Fruits;
 
-    public class FruitRepository : IFruitRepository
+    public sealed class FruitRepository : IFruitRepository
     {
         private readonly HashSet<IFruit> _fruits;
 
