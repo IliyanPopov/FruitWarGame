@@ -2,6 +2,7 @@
 {
     using ConsoleIO;
     using Contracts.ConsoleIO;
+    using Contracts.Core;
     using Core;
     using Data.Contracts;
     using Data.Repositories;
@@ -32,6 +33,7 @@
             Bind<IPosition>().To<Position>().InSingletonScope();
             Bind<IFruitFactory>().To<FruitFactory>().InSingletonScope();
             Bind<IWarriorFactory>().To<WarriorFactory>().InSingletonScope();
+            Bind<IWarriorCreator>().To<WarriorCreator>().InSingletonScope();
         }
     }
 }

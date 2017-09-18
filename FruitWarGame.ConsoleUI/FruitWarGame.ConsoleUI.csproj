@@ -50,7 +50,9 @@
     <Compile Include="Contracts\ConsoleIO\IReader.cs" />
     <Compile Include="Contracts\ConsoleIO\IWriter.cs" />
     <Compile Include="ConsoleIO\ConsoleRenderer.cs" />
+    <Compile Include="Contracts\Core\IWarriorCreator.cs" />
     <Compile Include="Core\Engine.cs" />
+    <Compile Include="Core\WarriorCreator.cs" />
     <Compile Include="IoC\FruitWarModule.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
