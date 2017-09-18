@@ -18,22 +18,22 @@
     {
         public override void Load()
         {
-            Bind<IEngine>().To<Engine>().InSingletonScope();
-            Bind<IRenderer>().To<ConsoleRenderer>().InSingletonScope();
-            Bind<IWriter>().To<ConsoleWriter>().InSingletonScope();
-            Bind<IReader>().To<ConsoleReader>().InSingletonScope();
+            this.Bind<IEngine>().To<Engine>().InSingletonScope();
+            this.Bind<IRenderer>().To<ConsoleRenderer>().InSingletonScope();
+            this.Bind<IWriter>().To<ConsoleWriter>().InSingletonScope();
+            this.Bind<IReader>().To<ConsoleReader>().InSingletonScope();
 
-            Bind<IFruitRepository>().To<FruitRepository>().InSingletonScope();
-            Bind<IWarriorRepository>().To<WarriorRepository>().InSingletonScope();
+            this.Bind<IFruitRepository>().To<FruitRepository>().InSingletonScope();
+            this.Bind<IWarriorRepository>().To<WarriorRepository>().InSingletonScope();
 
-            Bind<IGameInitializationStrategy>().To<GameInitializationStrategy>().InSingletonScope();
-            Bind<ISpawningValidator>().To<SpawningValidator>().InSingletonScope();
+            this.Bind<IGameInitializationStrategy>().To<GameInitializationStrategy>().InSingletonScope();
+            this.Bind<ISpawningValidator>().To<SpawningValidator>().InSingletonScope();
 
-            Bind<IGameGrid>().To<GameGrid>().InSingletonScope();
-            Bind<IPosition>().To<Position>().InSingletonScope();
-            Bind<IFruitFactory>().To<FruitFactory>().InSingletonScope();
-            Bind<IWarriorFactory>().To<WarriorFactory>().InSingletonScope();
-            Bind<IWarriorCreator>().To<WarriorCreator>().InSingletonScope();
+            this.Bind<IGameGrid>().To<GameGrid>().InSingletonScope();
+            this.Bind<IPosition>().To<Position>().InSingletonScope();
+            this.Bind<IFruitFactory>().To<FruitFactory>().InSingletonScope();
+            this.Bind<IWarriorFactory>().To<WarriorFactory>().InSingletonScope();
+            this.Bind<IWarriorCreator>().To<WarriorCreator>().InSingletonScope();
         }
     }
 }
