@@ -1,5 +1,6 @@
 ﻿namespace FruitWarGame.Models.Essential
 {
+    using System;
     using Common;
     using Contracts.Essential;
 
@@ -21,7 +22,7 @@
 
             set
             {
-                ValidateRow(value);
+                this.ValidateRow(value);
                 this._row = value;
             }
         }
@@ -32,20 +33,27 @@
 
             set
             {
-                ValidateCol(value);
+                this.ValidateCol(value);
                 this._col = value;
             }
         }
 
-
         private void ValidateRow(int value)
         {
-            Validator.Validate(value, 0, GlobalConstants.GameGridRowsCount, "Invalid Row");
+            this.Validate(value, 0, GlobalConstants.GameGridRowsCount, "Invalid Row");
         }
 
         private void ValidateCol(int value)
         {
-            Validator.Validate(value, 0, GlobalConstants.GameGridColsCount, "Invalid Col");
+            this.Validate(value, 0, GlobalConstants.GameGridColsCount, "Invalid Col");
+        }
+
+        private void Validate(int value, int min, int max, string errorMessage)
+        {
+            if (value < min || value >= max)
+            {
+                throw new IndexOutOfRangeException(errorMessage);
+            }
         }
     }
 }

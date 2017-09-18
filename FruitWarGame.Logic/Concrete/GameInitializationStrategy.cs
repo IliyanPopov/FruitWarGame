@@ -21,8 +21,7 @@
         private readonly ISpawningValidator _spawningValidator;
         private readonly IWarriorRepository _warriorRepository;
 
-        public GameInitializationStrategy(IGameGrid gamegrid, IWarriorRepository warriorRepository,
-            IFruitRepository fruitRepository, IFruitFactory fruitFactory, ISpawningValidator spawningValidator)
+        public GameInitializationStrategy(IGameGrid gamegrid, IWarriorRepository warriorRepository, IFruitRepository fruitRepository, IFruitFactory fruitFactory, ISpawningValidator spawningValidator)
         {
             this._grid = gamegrid;
             this._warriorRepository = warriorRepository;
@@ -33,10 +32,10 @@
 
         public void Initialize()
         {
-            InitializeGrid(GlobalConstants.GridDefaultSymbol);
-            CreateFruits();
-            AddFruitsToGrid();
-            AddWarriorsToGrid();
+            this.InitializeGrid(GlobalConstants.GridDefaultSymbol);
+            this.CreateFruits();
+            this.AddFruitsToGrid();
+            this.AddWarriorsToGrid();
         }
 
         private void InitializeGrid(char symbol)
@@ -65,17 +64,15 @@
             }
         }
 
-
         private void AddFruitsToGrid()
         {
             foreach (var fruit in this._fruitRepository)
             {
-                fruit.CurrentPosition = GetRandomPositionInGrid();
+                fruit.CurrentPosition = this.GetRandomPositionInGrid();
 
-                while (this._spawningValidator.ValidateSpawningPosition(fruit.CurrentPosition,
-                    PlacableEntities.Fruit, GlobalConstants.TwoPositionsApartFromEatchother))
+                while (this._spawningValidator.ValidateSpawningPosition(fruit.CurrentPosition, PlacableEntities.Fruit, GlobalConstants.TwoPositionsApartFromEatchother))
                 {
-                    fruit.CurrentPosition = GetRandomPositionInGrid();
+                    fruit.CurrentPosition = this.GetRandomPositionInGrid();
                 }
 
                 this._grid.PlaceFruit(fruit);
@@ -86,12 +83,11 @@
         {
             foreach (var warrior in this._warriorRepository)
             {
-                warrior.CurrentPosition = GetRandomPositionInGrid();
+                warrior.CurrentPosition = this.GetRandomPositionInGrid();
 
-                while (this._spawningValidator.ValidateSpawningPosition(warrior.CurrentPosition,
-                    PlacableEntities.Warrior, GlobalConstants.ThreePositionsApartFromEatchother))
+                while (this._spawningValidator.ValidateSpawningPosition(warrior.CurrentPosition, PlacableEntities.Warrior, GlobalConstants.ThreePositionsApartFromEatchother))
                 {
-                    warrior.CurrentPosition = GetRandomPositionInGrid();
+                    warrior.CurrentPosition = this.GetRandomPositionInGrid();
                 }
 
                 this._grid.PlaceWarrior(warrior);

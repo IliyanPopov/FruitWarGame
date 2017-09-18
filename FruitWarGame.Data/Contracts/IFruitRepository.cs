@@ -10,6 +10,8 @@
 
         IFruit GetFruitBySymbol(char symbol);
 
+        IFruit GetFruitByPosition(int positionX, int positionY);
+
         IQueryable<IFruit> GetAll();
 
         void RemoveAll();

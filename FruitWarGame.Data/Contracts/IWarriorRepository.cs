@@ -10,6 +10,8 @@
 
         IWarrior GetWarriorBySymbol(char symbol);
 
+        IWarrior GetWarriorByPosition(int positionX, int positionY);
+
         IQueryable<IWarrior> GetAll();
 
         void RemoveAll();

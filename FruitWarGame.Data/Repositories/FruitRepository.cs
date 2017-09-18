@@ -33,6 +33,19 @@
             throw new ArgumentException($"No fruit with such a symbol: {symbol} is placed on the game board!");
         }
 
+        public IFruit GetFruitByPosition(int positionX, int positionY)
+        {
+            var fruit = this._fruits.FirstOrDefault(f => f.CurrentPosition.Row == positionX &&
+                                                         f.CurrentPosition.Col == positionY);
+
+            if (fruit != null)
+            {
+                return fruit;
+            }
+
+            throw new ArgumentException($"No fruit on board with positionX: {positionX}, positionY: {positionY}");
+        }
+
         IQueryable<IFruit> IFruitRepository.GetAll()
         {
             return this._fruits.AsQueryable();
@@ -50,7 +63,7 @@
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return GetEnumerator();
+            return this.GetEnumerator();
         }
     }
 }

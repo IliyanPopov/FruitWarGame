@@ -8,7 +8,6 @@
     using Models.Contracts.Factories;
     using Models.Contracts.Warriors;
 
-
     public class WarriorCreator : IWarriorCreator
     {
         private readonly IReader _reader;
@@ -24,8 +23,7 @@
             this._warriorFactory = warriorFactory;
         }
 
-        public IWarrior CreateWarrior(char warriorSymbol, string playerCreationMessage,
-            string availableWarriorsMessage)
+        public IWarrior CreateWarrior(char warriorSymbol, string playerCreationMessage, string availableWarriorsMessage)
         {
             IWarrior playerWarrior = null;
 
@@ -43,16 +41,15 @@
                     {
                         throw new ArgumentException();
                     }
+
                     playerWarrior = this._warriorFactory.CreateWarrior(warriorSymbol, playerWarriorTpye);
                 }
-
                 catch (NotImplementedException e)
                 {
                     Console.WriteLine($"{e.Message}");
                     Thread.Sleep(2000);
                     this._renderer.Clear();
                 }
-
                 catch (ArgumentException)
                 {
                     Console.WriteLine($"Wrong input!");

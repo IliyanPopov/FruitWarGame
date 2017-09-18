@@ -5,7 +5,6 @@
 
     public interface ISpawningValidator
     {
-        bool ValidateSpawningPosition(IPosition placableEntity, PlacableEntities entityType,
-            int movesApartFromEachother);
+        bool ValidateSpawningPosition(IPosition placableEntity, PlacableEntities entityType, int movesApartFromEachother);
     }
 }

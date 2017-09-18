@@ -19,7 +19,6 @@
         public const int GameGridRowsCount = 8;
         public const int GameGridColsCount = 8;
 
-
         // for 1 position difference i  = 9
         // for 2 position difference i  = 25
         // for 3 position difference i  = 49

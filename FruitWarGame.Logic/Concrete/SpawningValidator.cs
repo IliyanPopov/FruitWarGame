@@ -13,8 +13,7 @@
             this._grid = grid;
         }
 
-        public bool ValidateSpawningPosition(IPosition placableEntity, PlacableEntities entityType,
-            int movesApartFromEachother)
+        public bool ValidateSpawningPosition(IPosition placableEntity, PlacableEntities entityType, int movesApartFromEachother)
         {
             int direction = 0; // The initial direction is "down"
             int stepsCount = 1; // Perform 1 step in current direction
@@ -34,7 +33,6 @@
                 {
                     stepPosition++;
                 }
-
                 else
                 {
                     if (positionX >= 0 && positionX <= this._grid.Rows - 1 &&
@@ -48,6 +46,7 @@
                                 {
                                     return true;
                                 }
+
                                 break;
                             case PlacableEntities.Warrior:
                                 if (
@@ -56,6 +55,7 @@
                                 {
                                     return true;
                                 }
+
                                 break;
                         }
                     }
@@ -72,6 +72,7 @@
                         {
                             stepsCount++;
                         }
+
                         stepChange = (stepChange + 1) % 2;
                         direction = (direction + 1) % 4;
                     }

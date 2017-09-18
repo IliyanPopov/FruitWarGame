@@ -18,10 +18,6 @@
             this.Symbol = symbol;
         }
 
-        protected int SpeedPoints { get; }
-
-        protected int PowerPoints { get; }
-
         public char Symbol { get; }
 
         public IPosition CurrentPosition { get; set; }
@@ -35,6 +31,10 @@
         {
             get { return this.PowerPoints + this._eatenFruits.Sum(b => b.PowerPointsBonus); }
         }
+
+        protected int SpeedPoints { get; }
+
+        protected int PowerPoints { get; }
 
         public void EatFruit(IFruit fruit)
         {

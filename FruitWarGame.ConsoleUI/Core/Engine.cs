@@ -1,7 +1,6 @@
 ﻿namespace FruitWarGame.ConsoleUI.Core
 {
     using System;
-    using System.Linq;
     using System.Text;
     using System.Threading;
     using Common;
@@ -10,7 +9,6 @@
     using Data.Contracts;
     using Logic.Contracts;
     using Models.Contracts.Essential;
-    using Models.Contracts.Fruits;
     using Models.Contracts.Warriors;
 
     public class Engine : IEngine
@@ -24,10 +22,7 @@
         private readonly IWarriorRepository _warriorRepository;
         private readonly IWriter _writer;
 
-        public Engine(IGameInitializationStrategy gameInitializationStrategy, IWarriorRepository warriorRepository,
-            IFruitRepository fruitRepository,
-            IWarriorCreator warriorCreator, IGameGrid grid,
-            IRenderer renderer, IReader reader, IWriter writer)
+        public Engine(IGameInitializationStrategy gameInitializationStrategy, IWarriorRepository warriorRepository, IFruitRepository fruitRepository, IWarriorCreator warriorCreator, IGameGrid grid, IRenderer renderer, IReader reader, IWriter writer)
         {
             this._gameInitializationStrategy = gameInitializationStrategy;
             this._warriorRepository = warriorRepository;
@@ -56,7 +51,7 @@
             this._renderer.Clear();
             this._gameInitializationStrategy.Initialize();
             this._renderer.RenderGrid();
-            this._writer.WriteLine(GetAllPlayersStats());
+            this._writer.WriteLine(this.GetAllPlayersStats());
 
             // process player turns and movement
             int playerTurns = 0;
@@ -67,30 +62,30 @@
                     // first player makes turn
                     try
                     {
-                        MoveWarriorDependingOnSpeedPoints(player1Warrior, GlobalConstants.Player1MakeMoveMessage);
+                        this.MoveWarriorDependingOnSpeedPoints(player1Warrior, GlobalConstants.Player1MakeMoveMessage);
                         playerTurns++;
                     }
                     catch (ArgumentException e)
                     {
-                        ProcessInvalidDirectionException(e);
+                        this.ProcessInvalidDirectionException(e);
                     }
                 }
+
                 if (playerTurns % 2 == 1)
                 {
                     // second player turns player makes turn
                     try
                     {
-                        MoveWarriorDependingOnSpeedPoints(player2Warrior, GlobalConstants.Player2MakeMoveMessage);
+                        this.MoveWarriorDependingOnSpeedPoints(player2Warrior, GlobalConstants.Player2MakeMoveMessage);
                         playerTurns++;
                     }
                     catch (ArgumentException e)
                     {
-                        ProcessInvalidDirectionException(e);
+                        this.ProcessInvalidDirectionException(e);
                     }
                 }
             }
         }
-
 
         private void MoveWarriorDependingOnSpeedPoints(IWarrior playerwarrior, string makeMoveMessage)
         {
@@ -100,8 +95,8 @@
             {
                 this._writer.WriteLine(makeMoveMessage);
                 var direction = Console.ReadKey();
-                MoveWarriorInDirection(playerwarrior, direction);
-                this._writer.WriteLine(GetAllPlayersStats());
+                this.MoveWarriorInDirection(playerwarrior, direction);
+                this._writer.WriteLine(this.GetAllPlayersStats());
             }
         }
 
@@ -113,7 +108,7 @@
             switch (direction.Key)
             {
                 case ConsoleKey.UpArrow:
-                    positionY = (warrior.CurrentPosition.Row - 1) % (this._grid.Rows);
+                    positionY = (warrior.CurrentPosition.Row - 1) % this._grid.Rows;
 
                     if (positionY < 0)
                     {
@@ -122,11 +117,12 @@
 
                     break;
                 case ConsoleKey.DownArrow:
-                    positionY = (warrior.CurrentPosition.Row + 1) % (this._grid.Rows);
+                    positionY = (warrior.CurrentPosition.Row + 1) % this._grid.Rows;
                     if (positionY > this._grid.Rows - 1)
                     {
                         positionY = 0;
                     }
+
                     break;
                 case ConsoleKey.LeftArrow:
                     positionX = (warrior.CurrentPosition.Col - 1) % this._grid.Cols;
@@ -142,33 +138,31 @@
                     {
                         positionX = 0;
                     }
+
                     break;
                 default:
                     throw new ArgumentException("Direction is not supported. Please use the arrow keys to navigate!");
             }
 
-            if (this._grid.GetCell(positionY, positionX) == GlobalConstants.AppleSymbol ||
-                this._grid.GetCell(positionY, positionX) == GlobalConstants.PearSymbol)
+            if (this.IsCellOccupiedByFruit(positionY, positionX))
             {
-                var fruit = GetFruitByPosition(positionY, positionX);
+                var fruit = this._fruitRepository.GetFruitByPosition(positionY, positionX);
 
                 warrior.EatFruit(fruit);
             }
 
-            if (this._grid.GetCell(positionY, positionX) == GlobalConstants.Player1Symbol ||
-                this._grid.GetCell(positionY, positionX) == GlobalConstants.Player2Symbol)
+            if (this.IsCellOcupiedByWarrior(positionY, positionX))
             {
                 int oldPositionX = warrior.CurrentPosition.Col;
                 int oldPositionY = warrior.CurrentPosition.Row;
 
-                ProcessEndGame(oldPositionX, oldPositionY, positionX, positionY);
+                this.ProcessEndGame(oldPositionX, oldPositionY, positionX, positionY);
             }
 
             // update grid old warriors position to default symbol
-            this._grid.SetCell(warrior.CurrentPosition.Row, warrior.CurrentPosition.Col,
-                GlobalConstants.GridDefaultSymbol);
+            this._grid.SetCell(warrior.CurrentPosition.Row, warrior.CurrentPosition.Col, GlobalConstants.GridDefaultSymbol);
 
-            //update grid to new warrior's position
+            // update grid to new warrior's position
             warrior.CurrentPosition.Row = positionY;
             warrior.CurrentPosition.Col = positionX;
             this._grid.SetCell(warrior.CurrentPosition.Row, warrior.CurrentPosition.Col, warrior.Symbol);
@@ -177,55 +171,46 @@
             this._renderer.RenderGrid();
         }
 
-
-        private IFruit GetFruitByPosition(int positionX, int positionY)
+        private bool IsCellOccupiedByFruit(int positionY, int positionX)
         {
-            var fruit = this._fruitRepository.FirstOrDefault(f => f.CurrentPosition.Row == positionX &&
-                                                                  f.CurrentPosition.Col == positionY);
-
-            return fruit;
+            return this._grid.GetCell(positionY, positionX) == GlobalConstants.AppleSymbol ||
+                   this._grid.GetCell(positionY, positionX) == GlobalConstants.PearSymbol;
         }
 
-        private IWarrior GetWarriorByPosition(int positionX, int positionY)
+        private bool IsCellOcupiedByWarrior(int positionY, int positionX)
         {
-            var warrior = this._warriorRepository.FirstOrDefault(w => w.CurrentPosition.Row == positionY &&
-                                                                  w.CurrentPosition.Col == positionX);
-
-            return warrior;
+            return this._grid.GetCell(positionY, positionX) == GlobalConstants.Player1Symbol ||
+                   this._grid.GetCell(positionY, positionX) == GlobalConstants.Player2Symbol;
         }
+
         private void ProcessEndGame(int oldPositionX, int oldPositionY, int positionX, int positionY)
         {
-            IWarrior warriorInOldPosition = GetWarriorByPosition(oldPositionX, oldPositionY);
+            IWarrior warriorInOldPosition = this._warriorRepository.GetWarriorByPosition(oldPositionX, oldPositionY);
 
-            IWarrior warriorInNewPosition = GetWarriorByPosition(positionX, positionY);
+            IWarrior warriorInNewPosition = this._warriorRepository.GetWarriorByPosition(positionX, positionY);
 
-            //TODO 50% done. Need to fix when player commits suicide logic
             if (warriorInOldPosition.TotalPowerPoints > warriorInNewPosition.TotalPowerPoints)
             {
                 // update grid old warriors position to default symbol
-                this._grid.SetCell(warriorInOldPosition.CurrentPosition.Row, warriorInOldPosition.CurrentPosition.Col,
-                    GlobalConstants.GridDefaultSymbol);
+                this._grid.SetCell(warriorInOldPosition.CurrentPosition.Row, warriorInOldPosition.CurrentPosition.Col, GlobalConstants.GridDefaultSymbol);
 
-                //update grid to new warrior's position
+                // update grid to new warrior's position
                 warriorInOldPosition.CurrentPosition.Row = positionY;
                 warriorInOldPosition.CurrentPosition.Col = positionX;
                 this._grid.SetCell(warriorInOldPosition.CurrentPosition.Row, warriorInOldPosition.CurrentPosition.Col, warriorInOldPosition.Symbol);
 
                 this._renderer.Clear();
                 this._renderer.RenderGrid();
-
-                this._writer.WriteLine(GetFinishingStatsForWarrior(warriorInOldPosition));
+                this._writer.WriteLine(this.GetFinishingStatsForWarrior(warriorInOldPosition));
             }
             else if (warriorInOldPosition.TotalPowerPoints < warriorInNewPosition.TotalPowerPoints)
             {
                 // update grid old warriors position to default symbol
-                this._grid.SetCell(warriorInOldPosition.CurrentPosition.Row, warriorInOldPosition.CurrentPosition.Col,
-                    GlobalConstants.GridDefaultSymbol);
+                this._grid.SetCell(warriorInOldPosition.CurrentPosition.Row, warriorInOldPosition.CurrentPosition.Col, GlobalConstants.GridDefaultSymbol);
 
                 this._renderer.Clear();
                 this._renderer.RenderGrid();
-
-                this._writer.WriteLine(GetFinishingStatsForWarrior(warriorInNewPosition));
+                this._writer.WriteLine(this.GetFinishingStatsForWarrior(warriorInNewPosition));
             }
             else
             {
@@ -233,7 +218,7 @@
                 this._writer.WriteLine("Draw game.");
             }
 
-            ProcessRestartGame();
+            this.ProcessRestartGame();
         }
 
         private string GetFinishingStatsForWarrior(IWarrior warrior)
@@ -259,7 +244,7 @@
                     this._renderer.Clear();
                     this._warriorRepository.RemoveAll();
                     this._fruitRepository.RemoveAll();
-                    Run();
+                    this.Run();
                     break;
                 case "n":
                     Environment.Exit(0);
@@ -280,9 +265,8 @@
             Thread.Sleep(2500);
             this._renderer.Clear();
             this._renderer.RenderGrid();
-            this._writer.WriteLine(GetAllPlayersStats());
+            this._writer.WriteLine(this.GetAllPlayersStats());
         }
-
 
         private string GetAllPlayersStats()
         {

@@ -6,7 +6,7 @@
   <sourcecode name="ConsoleReader.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2017.07.30 13:43:46.385</styleCop>
-      <settingsFile>2017.07.30 13:43:46.296</settingsFile>
+      <settingsFile>2017.09.18 10:31:06.141</settingsFile>
       <sourceFile>2017.09.16 20:07:20.151</sourceFile>
       <parser>2017.07.30 13:43:46.385</parser>
       <StyleCop.CSharp.DocumentationRules>2017.07.30 13:43:46.385</StyleCop.CSharp.DocumentationRules>
@@ -24,28 +24,12 @@
       <StyleCop.CSharp.SpacingRules>2017.07.30 13:43:46.385</StyleCop.CSharp.SpacingRules>
       <StyleCop.CSharp.SpacingRules.FilesHashCode>0</StyleCop.CSharp.SpacingRules.FilesHashCode>
     </timestamps>
-    <violations>
-      <violation namespace="StyleCop.CSharp.DocumentationRules" rule="FileMustHaveHeader" ruleCheckId="SA1633">
-        <context>The file has no header, the header Xml is invalid, or the header is not located at the top of the file.</context>
-        <line>1</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ElementsMustBeDocumented" ruleCheckId="SA1600">
-        <context>The class must have a documentation header.</context>
-        <line>6</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ElementsMustBeDocumented" ruleCheckId="SA1600">
-        <context>The method must have a documentation header.</context>
-        <line>8</line>
-        <warning>False</warning>
-      </violation>
-    </violations>
+    <violations />
   </sourcecode>
   <sourcecode name="ConsoleRenderer.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2017.07.30 13:43:46.385</styleCop>
-      <settingsFile>2017.07.30 13:43:46.296</settingsFile>
+      <settingsFile>2017.09.18 10:31:06.141</settingsFile>
       <sourceFile>2017.09.16 20:07:13.008</sourceFile>
       <parser>2017.07.30 13:43:46.385</parser>
       <StyleCop.CSharp.DocumentationRules>2017.07.30 13:43:46.385</StyleCop.CSharp.DocumentationRules>
@@ -63,69 +47,13 @@
       <StyleCop.CSharp.SpacingRules>2017.07.30 13:43:46.385</StyleCop.CSharp.SpacingRules>
       <StyleCop.CSharp.SpacingRules.FilesHashCode>0</StyleCop.CSharp.SpacingRules.FilesHashCode>
     </timestamps>
-    <violations>
-      <violation namespace="StyleCop.CSharp.DocumentationRules" rule="FileMustHaveHeader" ruleCheckId="SA1633">
-        <context>The file has no header, the header Xml is invalid, or the header is not located at the top of the file.</context>
-        <line>1</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ElementsMustBeDocumented" ruleCheckId="SA1600">
-        <context>The class must have a documentation header.</context>
-        <line>9</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ElementsMustBeDocumented" ruleCheckId="SA1600">
-        <context>The field must have a documentation header.</context>
-        <line>11</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.NamingRules" rule="FieldNamesMustNotBeginWithUnderscore" ruleCheckId="SA1309">
-        <context>Field names must not start with an underscore.</context>
-        <line>11</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ElementsMustBeDocumented" ruleCheckId="SA1600">
-        <context>The field must have a documentation header.</context>
-        <line>12</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.NamingRules" rule="FieldNamesMustNotBeginWithUnderscore" ruleCheckId="SA1309">
-        <context>Field names must not start with an underscore.</context>
-        <line>12</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ElementsMustBeDocumented" ruleCheckId="SA1600">
-        <context>The field must have a documentation header.</context>
-        <line>13</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.NamingRules" rule="FieldNamesMustNotBeginWithUnderscore" ruleCheckId="SA1309">
-        <context>Field names must not start with an underscore.</context>
-        <line>13</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ElementsMustBeDocumented" ruleCheckId="SA1600">
-        <context>The constructor must have a documentation header.</context>
-        <line>15</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ElementsMustBeDocumented" ruleCheckId="SA1600">
-        <context>The method must have a documentation header.</context>
-        <line>22</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ElementsMustBeDocumented" ruleCheckId="SA1600">
-        <context>The method must have a documentation header.</context>
-        <line>39</line>
-        <warning>False</warning>
-      </violation>
-    </violations>
+    <violations />
   </sourcecode>
   <sourcecode name="ConsoleWriter.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2017.07.30 13:43:46.385</styleCop>
-      <settingsFile>2017.07.30 13:43:46.296</settingsFile>
-      <sourceFile>2017.09.16 20:08:26.363</sourceFile>
+      <settingsFile>2017.09.18 10:31:06.141</settingsFile>
+      <sourceFile>2017.09.17 17:53:03.980</sourceFile>
       <parser>2017.07.30 13:43:46.385</parser>
       <StyleCop.CSharp.DocumentationRules>2017.07.30 13:43:46.385</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>0</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -142,33 +70,12 @@
       <StyleCop.CSharp.SpacingRules>2017.07.30 13:43:46.385</StyleCop.CSharp.SpacingRules>
       <StyleCop.CSharp.SpacingRules.FilesHashCode>0</StyleCop.CSharp.SpacingRules.FilesHashCode>
     </timestamps>
-    <violations>
-      <violation namespace="StyleCop.CSharp.DocumentationRules" rule="FileMustHaveHeader" ruleCheckId="SA1633">
-        <context>The file has no header, the header Xml is invalid, or the header is not located at the top of the file.</context>
-        <line>1</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ElementsMustBeDocumented" ruleCheckId="SA1600">
-        <context>The class must have a documentation header.</context>
-        <line>6</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ElementsMustBeDocumented" ruleCheckId="SA1600">
-        <context>The method must have a documentation header.</context>
-        <line>8</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ElementsMustBeDocumented" ruleCheckId="SA1600">
-        <context>The method must have a documentation header.</context>
-        <line>13</line>
-        <warning>False</warning>
-      </violation>
-    </violations>
+    <violations />
   </sourcecode>
   <sourcecode name="IReader.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2017.07.30 13:43:46.385</styleCop>
-      <settingsFile>2017.07.30 13:43:46.296</settingsFile>
+      <settingsFile>2017.09.18 10:31:06.141</settingsFile>
       <sourceFile>2017.09.16 11:18:42.898</sourceFile>
       <parser>2017.07.30 13:43:46.385</parser>
       <StyleCop.CSharp.DocumentationRules>2017.07.30 13:43:46.385</StyleCop.CSharp.DocumentationRules>
@@ -186,29 +93,13 @@
       <StyleCop.CSharp.SpacingRules>2017.07.30 13:43:46.385</StyleCop.CSharp.SpacingRules>
       <StyleCop.CSharp.SpacingRules.FilesHashCode>0</StyleCop.CSharp.SpacingRules.FilesHashCode>
     </timestamps>
-    <violations>
-      <violation namespace="StyleCop.CSharp.DocumentationRules" rule="FileMustHaveHeader" ruleCheckId="SA1633">
-        <context>The file has no header, the header Xml is invalid, or the header is not located at the top of the file.</context>
-        <line>1</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ElementsMustBeDocumented" ruleCheckId="SA1600">
-        <context>The interface must have a documentation header.</context>
-        <line>3</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ElementsMustBeDocumented" ruleCheckId="SA1600">
-        <context>The method must have a documentation header.</context>
-        <line>5</line>
-        <warning>False</warning>
-      </violation>
-    </violations>
+    <violations />
   </sourcecode>
   <sourcecode name="IWriter.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2017.07.30 13:43:46.385</styleCop>
-      <settingsFile>2017.07.30 13:43:46.296</settingsFile>
-      <sourceFile>2017.09.16 20:08:25.101</sourceFile>
+      <settingsFile>2017.09.18 10:31:06.141</settingsFile>
+      <sourceFile>2017.09.17 17:52:32.866</sourceFile>
       <parser>2017.07.30 13:43:46.385</parser>
       <StyleCop.CSharp.DocumentationRules>2017.07.30 13:43:46.385</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>0</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -225,34 +116,36 @@
       <StyleCop.CSharp.SpacingRules>2017.07.30 13:43:46.385</StyleCop.CSharp.SpacingRules>
       <StyleCop.CSharp.SpacingRules.FilesHashCode>0</StyleCop.CSharp.SpacingRules.FilesHashCode>
     </timestamps>
-    <violations>
-      <violation namespace="StyleCop.CSharp.DocumentationRules" rule="FileMustHaveHeader" ruleCheckId="SA1633">
-        <context>The file has no header, the header Xml is invalid, or the header is not located at the top of the file.</context>
-        <line>1</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ElementsMustBeDocumented" ruleCheckId="SA1600">
-        <context>The interface must have a documentation header.</context>
-        <line>3</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ElementsMustBeDocumented" ruleCheckId="SA1600">
-        <context>The method must have a documentation header.</context>
-        <line>5</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ElementsMustBeDocumented" ruleCheckId="SA1600">
-        <context>The method must have a documentation header.</context>
-        <line>7</line>
-        <warning>False</warning>
-      </violation>
-    </violations>
+    <violations />
+  </sourcecode>
+  <sourcecode name="IWarriorCreator.cs" parser="StyleCop.CSharp.CsParser">
+    <timestamps>
+      <styleCop>2017.07.30 13:43:46.385</styleCop>
+      <settingsFile>2017.09.18 10:31:06.141</settingsFile>
+      <sourceFile>2017.09.18 10:34:40.745</sourceFile>
+      <parser>2017.07.30 13:43:46.385</parser>
+      <StyleCop.CSharp.DocumentationRules>2017.07.30 13:43:46.385</StyleCop.CSharp.DocumentationRules>
+      <StyleCop.CSharp.DocumentationRules.FilesHashCode>0</StyleCop.CSharp.DocumentationRules.FilesHashCode>
+      <StyleCop.CSharp.LayoutRules>2017.07.30 13:43:46.385</StyleCop.CSharp.LayoutRules>
+      <StyleCop.CSharp.LayoutRules.FilesHashCode>0</StyleCop.CSharp.LayoutRules.FilesHashCode>
+      <StyleCop.CSharp.MaintainabilityRules>2017.07.30 13:43:46.385</StyleCop.CSharp.MaintainabilityRules>
+      <StyleCop.CSharp.MaintainabilityRules.FilesHashCode>0</StyleCop.CSharp.MaintainabilityRules.FilesHashCode>
+      <StyleCop.CSharp.NamingRules>2017.07.30 13:43:46.385</StyleCop.CSharp.NamingRules>
+      <StyleCop.CSharp.NamingRules.FilesHashCode>0</StyleCop.CSharp.NamingRules.FilesHashCode>
+      <StyleCop.CSharp.OrderingRules>2017.07.30 13:43:46.385</StyleCop.CSharp.OrderingRules>
+      <StyleCop.CSharp.OrderingRules.FilesHashCode>0</StyleCop.CSharp.OrderingRules.FilesHashCode>
+      <StyleCop.CSharp.ReadabilityRules>2017.07.30 13:43:46.385</StyleCop.CSharp.ReadabilityRules>
+      <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
+      <StyleCop.CSharp.SpacingRules>2017.07.30 13:43:46.385</StyleCop.CSharp.SpacingRules>
+      <StyleCop.CSharp.SpacingRules.FilesHashCode>0</StyleCop.CSharp.SpacingRules.FilesHashCode>
+    </timestamps>
+    <violations />
   </sourcecode>
   <sourcecode name="Engine.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2017.07.30 13:43:46.385</styleCop>
-      <settingsFile>2017.07.30 13:43:46.296</settingsFile>
-      <sourceFile>2017.09.16 20:17:47.009</sourceFile>
+      <settingsFile>2017.09.18 10:31:06.141</settingsFile>
+      <sourceFile>2017.09.18 10:34:25.236</sourceFile>
       <parser>2017.07.30 13:43:46.385</parser>
       <StyleCop.CSharp.DocumentationRules>2017.07.30 13:43:46.385</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>0</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -269,473 +162,36 @@
       <StyleCop.CSharp.SpacingRules>2017.07.30 13:43:46.385</StyleCop.CSharp.SpacingRules>
       <StyleCop.CSharp.SpacingRules.FilesHashCode>0</StyleCop.CSharp.SpacingRules.FilesHashCode>
     </timestamps>
-    <violations>
-      <violation namespace="StyleCop.CSharp.DocumentationRules" rule="FileMustHaveHeader" ruleCheckId="SA1633">
-        <context>The file has no header, the header Xml is invalid, or the header is not located at the top of the file.</context>
-        <line>1</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ElementsMustBeDocumented" ruleCheckId="SA1600">
-        <context>The class must have a documentation header.</context>
-        <line>16</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.LayoutRules" rule="CodeMustNotContainMultipleBlankLinesInARow" ruleCheckId="SA1507">
-        <context>The code must not contain multiple blank lines in a row.</context>
-        <line>214</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.LayoutRules" rule="CodeMustNotContainMultipleBlankLinesInARow" ruleCheckId="SA1507">
-        <context>The code must not contain multiple blank lines in a row.</context>
-        <line>295</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ElementsMustBeDocumented" ruleCheckId="SA1600">
-        <context>The field must have a documentation header.</context>
-        <line>18</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.NamingRules" rule="FieldNamesMustNotBeginWithUnderscore" ruleCheckId="SA1309">
-        <context>Field names must not start with an underscore.</context>
-        <line>18</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ElementsMustBeDocumented" ruleCheckId="SA1600">
-        <context>The field must have a documentation header.</context>
-        <line>19</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.NamingRules" rule="FieldNamesMustNotBeginWithUnderscore" ruleCheckId="SA1309">
-        <context>Field names must not start with an underscore.</context>
-        <line>19</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ElementsMustBeDocumented" ruleCheckId="SA1600">
-        <context>The field must have a documentation header.</context>
-        <line>20</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.NamingRules" rule="FieldNamesMustNotBeginWithUnderscore" ruleCheckId="SA1309">
-        <context>Field names must not start with an underscore.</context>
-        <line>20</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ElementsMustBeDocumented" ruleCheckId="SA1600">
-        <context>The field must have a documentation header.</context>
-        <line>21</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.NamingRules" rule="FieldNamesMustNotBeginWithUnderscore" ruleCheckId="SA1309">
-        <context>Field names must not start with an underscore.</context>
-        <line>21</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ElementsMustBeDocumented" ruleCheckId="SA1600">
-        <context>The field must have a documentation header.</context>
-        <line>22</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.NamingRules" rule="FieldNamesMustNotBeginWithUnderscore" ruleCheckId="SA1309">
-        <context>Field names must not start with an underscore.</context>
-        <line>22</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ElementsMustBeDocumented" ruleCheckId="SA1600">
-        <context>The field must have a documentation header.</context>
-        <line>23</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.NamingRules" rule="FieldNamesMustNotBeginWithUnderscore" ruleCheckId="SA1309">
-        <context>Field names must not start with an underscore.</context>
-        <line>23</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ElementsMustBeDocumented" ruleCheckId="SA1600">
-        <context>The field must have a documentation header.</context>
-        <line>24</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.NamingRules" rule="FieldNamesMustNotBeginWithUnderscore" ruleCheckId="SA1309">
-        <context>Field names must not start with an underscore.</context>
-        <line>24</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ElementsMustBeDocumented" ruleCheckId="SA1600">
-        <context>The field must have a documentation header.</context>
-        <line>25</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.NamingRules" rule="FieldNamesMustNotBeginWithUnderscore" ruleCheckId="SA1309">
-        <context>Field names must not start with an underscore.</context>
-        <line>25</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ElementsMustBeDocumented" ruleCheckId="SA1600">
-        <context>The constructor must have a documentation header.</context>
-        <line>27</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.ReadabilityRules" rule="ParametersMustBeOnSameLineOrSeparateLines" ruleCheckId="SA1117">
-        <context>All constructor parameters must be placed on the same line, or each parameter must be placed on a separate line.</context>
-        <line>27</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.ReadabilityRules" rule="SplitParametersMustStartOnLineAfterDeclaration" ruleCheckId="SA1116">
-        <context>If the constructor parameters are on separate lines, the first parameter must begin on the line beneath the name of the constructor.</context>
-        <line>27</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.ReadabilityRules" rule="ParameterMustFollowComma" ruleCheckId="SA1115">
-        <context>The parameter must begin on the line after the previous parameter.</context>
-        <line>27</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.ReadabilityRules" rule="ParameterMustFollowComma" ruleCheckId="SA1115">
-        <context>The parameter must begin on the line after the previous parameter.</context>
-        <line>29</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.ReadabilityRules" rule="ParameterMustFollowComma" ruleCheckId="SA1115">
-        <context>The parameter must begin on the line after the previous parameter.</context>
-        <line>30</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ElementsMustBeDocumented" ruleCheckId="SA1600">
-        <context>The method must have a documentation header.</context>
-        <line>42</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.LayoutRules" rule="ClosingCurlyBracketMustBeFollowedByBlankLine" ruleCheckId="SA1513">
-        <context>Statements or elements wrapped in curly brackets must be followed by a blank line.</context>
-        <line>77</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.ReadabilityRules" rule="SplitParametersMustStartOnLineAfterDeclaration" ruleCheckId="SA1116">
-        <context>If the method parameters are on separate lines, the first parameter must begin on the line beneath the name of the method.</context>
-        <line>45</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.ReadabilityRules" rule="SplitParametersMustStartOnLineAfterDeclaration" ruleCheckId="SA1116">
-        <context>If the method parameters are on separate lines, the first parameter must begin on the line beneath the name of the method.</context>
-        <line>49</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.ReadabilityRules" rule="PrefixLocalCallsWithThis" ruleCheckId="SA1101">
-        <context>The call to CreateWarrior must begin with the 'this.' prefix to indicate that the item is a member of the class.</context>
-        <line>45</line>
-        <index>1712</index>
-        <endIndex>1724</endIndex>
-        <startLine>45</startLine>
-        <startColumn>39</startColumn>
-        <endLine>45</endLine>
-        <endColumn>51</endColumn>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.ReadabilityRules" rule="PrefixLocalCallsWithThis" ruleCheckId="SA1101">
-        <context>The call to CreateWarrior must begin with the 'this.' prefix to indicate that the item is a member of the class.</context>
-        <line>49</line>
-        <index>1912</index>
-        <endIndex>1924</endIndex>
-        <startLine>49</startLine>
-        <startColumn>39</startColumn>
-        <endLine>49</endLine>
-        <endColumn>51</endColumn>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.ReadabilityRules" rule="PrefixLocalCallsWithThis" ruleCheckId="SA1101">
-        <context>The call to GetAllPlayersStats must begin with the 'this.' prefix to indicate that the item is a member of the class.</context>
-        <line>59</line>
-        <index>2380</index>
-        <endIndex>2397</endIndex>
-        <startLine>59</startLine>
-        <startColumn>36</startColumn>
-        <endLine>59</endLine>
-        <endColumn>53</endColumn>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.ReadabilityRules" rule="PrefixLocalCallsWithThis" ruleCheckId="SA1101">
-        <context>The call to MovePlayerDependingOnSpeedPoints must begin with the 'this.' prefix to indicate that the item is a member of the class.</context>
-        <line>70</line>
-        <index>2713</index>
-        <endIndex>2744</endIndex>
-        <startLine>70</startLine>
-        <startColumn>25</startColumn>
-        <endLine>70</endLine>
-        <endColumn>56</endColumn>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.ReadabilityRules" rule="PrefixLocalCallsWithThis" ruleCheckId="SA1101">
-        <context>The call to ProcessInvalidDirectionException must begin with the 'this.' prefix to indicate that the item is a member of the class.</context>
-        <line>75</line>
-        <index>2963</index>
-        <endIndex>2994</endIndex>
-        <startLine>75</startLine>
-        <startColumn>25</startColumn>
-        <endLine>75</endLine>
-        <endColumn>56</endColumn>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.ReadabilityRules" rule="PrefixLocalCallsWithThis" ruleCheckId="SA1101">
-        <context>The call to MovePlayerDependingOnSpeedPoints must begin with the 'this.' prefix to indicate that the item is a member of the class.</context>
-        <line>83</line>
-        <index>3239</index>
-        <endIndex>3270</endIndex>
-        <startLine>83</startLine>
-        <startColumn>25</startColumn>
-        <endLine>83</endLine>
-        <endColumn>56</endColumn>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.ReadabilityRules" rule="PrefixLocalCallsWithThis" ruleCheckId="SA1101">
-        <context>The call to ProcessInvalidDirectionException must begin with the 'this.' prefix to indicate that the item is a member of the class.</context>
-        <line>88</line>
-        <index>3489</index>
-        <endIndex>3520</endIndex>
-        <startLine>88</startLine>
-        <startColumn>25</startColumn>
-        <endLine>88</endLine>
-        <endColumn>56</endColumn>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ElementsMustBeDocumented" ruleCheckId="SA1600">
-        <context>The method must have a documentation header.</context>
-        <line>94</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.LayoutRules" rule="ClosingCurlyBracketMustBeFollowedByBlankLine" ruleCheckId="SA1513">
-        <context>Statements or elements wrapped in curly brackets must be followed by a blank line.</context>
-        <line>110</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.LayoutRules" rule="ChainedStatementBlocksMustNotBePrecededByBlankLine" ruleCheckId="SA1510">
-        <context>An else, catch, or finally statement must not be preceded by a blank line.</context>
-        <line>114</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.LayoutRules" rule="ChainedStatementBlocksMustNotBePrecededByBlankLine" ruleCheckId="SA1510">
-        <context>An else, catch, or finally statement must not be preceded by a blank line.</context>
-        <line>121</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.ReadabilityRules" rule="ParametersMustBeOnSameLineOrSeparateLines" ruleCheckId="SA1117">
-        <context>All method parameters must be placed on the same line, or each parameter must be placed on a separate line.</context>
-        <line>94</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.ReadabilityRules" rule="SplitParametersMustStartOnLineAfterDeclaration" ruleCheckId="SA1116">
-        <context>If the method parameters are on separate lines, the first parameter must begin on the line beneath the name of the method.</context>
-        <line>94</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.ReadabilityRules" rule="ParameterMustFollowComma" ruleCheckId="SA1115">
-        <context>The parameter must begin on the line after the previous parameter.</context>
-        <line>94</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ElementsMustBeDocumented" ruleCheckId="SA1600">
-        <context>The method must have a documentation header.</context>
-        <line>132</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.ReadabilityRules" rule="PrefixLocalCallsWithThis" ruleCheckId="SA1101">
-        <context>The call to MoveWarriorInDirection must begin with the 'this.' prefix to indicate that the item is a member of the class.</context>
-        <line>140</line>
-        <index>5347</index>
-        <endIndex>5368</endIndex>
-        <startLine>140</startLine>
-        <startColumn>17</startColumn>
-        <endLine>140</endLine>
-        <endColumn>38</endColumn>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.ReadabilityRules" rule="PrefixLocalCallsWithThis" ruleCheckId="SA1101">
-        <context>The call to GetAllPlayersStats must begin with the 'this.' prefix to indicate that the item is a member of the class.</context>
-        <line>141</line>
-        <index>5437</index>
-        <endIndex>5454</endIndex>
-        <startLine>141</startLine>
-        <startColumn>40</startColumn>
-        <endLine>141</endLine>
-        <endColumn>57</endColumn>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ElementsMustBeDocumented" ruleCheckId="SA1600">
-        <context>The method must have a documentation header.</context>
-        <line>145</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.LayoutRules" rule="ClosingCurlyBracketMustBeFollowedByBlankLine" ruleCheckId="SA1513">
-        <context>Statements or elements wrapped in curly brackets must be followed by a blank line.</context>
-        <line>165</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.LayoutRules" rule="ClosingCurlyBracketMustBeFollowedByBlankLine" ruleCheckId="SA1513">
-        <context>Statements or elements wrapped in curly brackets must be followed by a blank line.</context>
-        <line>180</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.MaintainabilityRules" rule="StatementMustNotUseUnnecessaryParenthesis" ruleCheckId="SA1119">
-        <context>The line contains unnecessary parenthesis.</context>
-        <line>152</line>
-        <index>5866</index>
-        <endIndex>5882</endIndex>
-        <startLine>152</startLine>
-        <startColumn>69</startColumn>
-        <endLine>152</endLine>
-        <endColumn>85</endColumn>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.MaintainabilityRules" rule="StatementMustNotUseUnnecessaryParenthesis" ruleCheckId="SA1119">
-        <context>The line contains unnecessary parenthesis.</context>
-        <line>161</line>
-        <index>6174</index>
-        <endIndex>6190</endIndex>
-        <startLine>161</startLine>
-        <startColumn>69</startColumn>
-        <endLine>161</endLine>
-        <endColumn>85</endColumn>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.ReadabilityRules" rule="ParametersMustBeOnSameLineOrSeparateLines" ruleCheckId="SA1117">
-        <context>All method parameters must be placed on the same line, or each parameter must be placed on a separate line.</context>
-        <line>201</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.ReadabilityRules" rule="SplitParametersMustStartOnLineAfterDeclaration" ruleCheckId="SA1116">
-        <context>If the method parameters are on separate lines, the first parameter must begin on the line beneath the name of the method.</context>
-        <line>201</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.ReadabilityRules" rule="ParameterMustFollowComma" ruleCheckId="SA1115">
-        <context>The parameter must begin on the line after the previous parameter.</context>
-        <line>201</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.ReadabilityRules" rule="PrefixLocalCallsWithThis" ruleCheckId="SA1101">
-        <context>The call to GetFruitByPosition must begin with the 'this.' prefix to indicate that the item is a member of the class.</context>
-        <line>189</line>
-        <index>7360</index>
-        <endIndex>7377</endIndex>
-        <startLine>189</startLine>
-        <startColumn>29</startColumn>
-        <endLine>189</endLine>
-        <endColumn>46</endColumn>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.ReadabilityRules" rule="PrefixLocalCallsWithThis" ruleCheckId="SA1101">
-        <context>The call to ProcessEndGame must begin with the 'this.' prefix to indicate that the item is a member of the class.</context>
-        <line>197</line>
-        <index>7681</index>
-        <endIndex>7694</endIndex>
-        <startLine>197</startLine>
-        <startColumn>17</startColumn>
-        <endLine>197</endLine>
-        <endColumn>30</endColumn>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.SpacingRules" rule="SingleLineCommentsMustBeginWithSingleSpace" ruleCheckId="SA1005">
-        <context>The comment must start with a single space. To ignore this error when commenting out a line of code, begin the comment with '////' rather than '//'.</context>
-        <line>204</line>
-        <index>7942</index>
-        <endIndex>7980</endIndex>
-        <startLine>204</startLine>
-        <startColumn>13</startColumn>
-        <endLine>204</endLine>
-        <endColumn>51</endColumn>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ElementsMustBeDocumented" ruleCheckId="SA1600">
-        <context>The method must have a documentation header.</context>
-        <line>215</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ElementsMustBeDocumented" ruleCheckId="SA1600">
-        <context>The method must have a documentation header.</context>
-        <line>223</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.ReadabilityRules" rule="PrefixLocalCallsWithThis" ruleCheckId="SA1101">
-        <context>The call to GetFinishingStatsForWarrior must begin with the 'this.' prefix to indicate that the item is a member of the class.</context>
-        <line>233</line>
-        <index>9107</index>
-        <endIndex>9133</endIndex>
-        <startLine>233</startLine>
-        <startColumn>40</startColumn>
-        <endLine>233</endLine>
-        <endColumn>66</endColumn>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.ReadabilityRules" rule="PrefixLocalCallsWithThis" ruleCheckId="SA1101">
-        <context>The call to GetFinishingStatsForWarrior must begin with the 'this.' prefix to indicate that the item is a member of the class.</context>
-        <line>237</line>
-        <index>9325</index>
-        <endIndex>9351</endIndex>
-        <startLine>237</startLine>
-        <startColumn>40</startColumn>
-        <endLine>237</endLine>
-        <endColumn>66</endColumn>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.ReadabilityRules" rule="PrefixLocalCallsWithThis" ruleCheckId="SA1101">
-        <context>The call to ProcessRestartGame must begin with the 'this.' prefix to indicate that the item is a member of the class.</context>
-        <line>245</line>
-        <index>9591</index>
-        <endIndex>9608</endIndex>
-        <startLine>245</startLine>
-        <startColumn>13</startColumn>
-        <endLine>245</endLine>
-        <endColumn>30</endColumn>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ElementsMustBeDocumented" ruleCheckId="SA1600">
-        <context>The method must have a documentation header.</context>
-        <line>248</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ElementsMustBeDocumented" ruleCheckId="SA1600">
-        <context>The method must have a documentation header.</context>
-        <line>260</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.ReadabilityRules" rule="PrefixLocalCallsWithThis" ruleCheckId="SA1101">
-        <context>The call to Run must begin with the 'this.' prefix to indicate that the item is a member of the class.</context>
-        <line>271</line>
-        <index>10613</index>
-        <endIndex>10615</endIndex>
-        <startLine>271</startLine>
-        <startColumn>21</startColumn>
-        <endLine>271</endLine>
-        <endColumn>23</endColumn>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ElementsMustBeDocumented" ruleCheckId="SA1600">
-        <context>The method must have a documentation header.</context>
-        <line>285</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.ReadabilityRules" rule="PrefixLocalCallsWithThis" ruleCheckId="SA1101">
-        <context>The call to GetAllPlayersStats must begin with the 'this.' prefix to indicate that the item is a member of the class.</context>
-        <line>292</line>
-        <index>11382</index>
-        <endIndex>11399</endIndex>
-        <startLine>292</startLine>
-        <startColumn>36</startColumn>
-        <endLine>292</endLine>
-        <endColumn>53</endColumn>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ElementsMustBeDocumented" ruleCheckId="SA1600">
-        <context>The method must have a documentation header.</context>
-        <line>296</line>
-        <warning>False</warning>
-      </violation>
-    </violations>
+    <violations />
+  </sourcecode>
+  <sourcecode name="WarriorCreator.cs" parser="StyleCop.CSharp.CsParser">
+    <timestamps>
+      <styleCop>2017.07.30 13:43:46.385</styleCop>
+      <settingsFile>2017.09.18 10:31:06.141</settingsFile>
+      <sourceFile>2017.09.18 10:33:49.330</sourceFile>
+      <parser>2017.07.30 13:43:46.385</parser>
+      <StyleCop.CSharp.DocumentationRules>2017.07.30 13:43:46.385</StyleCop.CSharp.DocumentationRules>
+      <StyleCop.CSharp.DocumentationRules.FilesHashCode>0</StyleCop.CSharp.DocumentationRules.FilesHashCode>
+      <StyleCop.CSharp.LayoutRules>2017.07.30 13:43:46.385</StyleCop.CSharp.LayoutRules>
+      <StyleCop.CSharp.LayoutRules.FilesHashCode>0</StyleCop.CSharp.LayoutRules.FilesHashCode>
+      <StyleCop.CSharp.MaintainabilityRules>2017.07.30 13:43:46.385</StyleCop.CSharp.MaintainabilityRules>
+      <StyleCop.CSharp.MaintainabilityRules.FilesHashCode>0</StyleCop.CSharp.MaintainabilityRules.FilesHashCode>
+      <StyleCop.CSharp.NamingRules>2017.07.30 13:43:46.385</StyleCop.CSharp.NamingRules>
+      <StyleCop.CSharp.NamingRules.FilesHashCode>0</StyleCop.CSharp.NamingRules.FilesHashCode>
+      <StyleCop.CSharp.OrderingRules>2017.07.30 13:43:46.385</StyleCop.CSharp.OrderingRules>
+      <StyleCop.CSharp.OrderingRules.FilesHashCode>0</StyleCop.CSharp.OrderingRules.FilesHashCode>
+      <StyleCop.CSharp.ReadabilityRules>2017.07.30 13:43:46.385</StyleCop.CSharp.ReadabilityRules>
+      <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
+      <StyleCop.CSharp.SpacingRules>2017.07.30 13:43:46.385</StyleCop.CSharp.SpacingRules>
+      <StyleCop.CSharp.SpacingRules.FilesHashCode>0</StyleCop.CSharp.SpacingRules.FilesHashCode>
+    </timestamps>
+    <violations />
   </sourcecode>
   <sourcecode name="FruitWarModule.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2017.07.30 13:43:46.385</styleCop>
-      <settingsFile>2017.07.30 13:43:46.296</settingsFile>
-      <sourceFile>2017.09.16 20:18:04.355</sourceFile>
+      <settingsFile>2017.09.18 10:31:06.141</settingsFile>
+      <sourceFile>2017.09.17 20:19:45.558</sourceFile>
       <parser>2017.07.30 13:43:46.385</parser>
       <StyleCop.CSharp.DocumentationRules>2017.07.30 13:43:46.385</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>0</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -752,28 +208,12 @@
       <StyleCop.CSharp.SpacingRules>2017.07.30 13:43:46.385</StyleCop.CSharp.SpacingRules>
       <StyleCop.CSharp.SpacingRules.FilesHashCode>0</StyleCop.CSharp.SpacingRules.FilesHashCode>
     </timestamps>
-    <violations>
-      <violation namespace="StyleCop.CSharp.DocumentationRules" rule="FileMustHaveHeader" ruleCheckId="SA1633">
-        <context>The file has no header, the header Xml is invalid, or the header is not located at the top of the file.</context>
-        <line>1</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ElementsMustBeDocumented" ruleCheckId="SA1600">
-        <context>The class must have a documentation header.</context>
-        <line>16</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ElementsMustBeDocumented" ruleCheckId="SA1600">
-        <context>The method must have a documentation header.</context>
-        <line>18</line>
-        <warning>False</warning>
-      </violation>
-    </violations>
+    <violations />
   </sourcecode>
   <sourcecode name="AssemblyInfo.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2017.07.30 13:43:46.385</styleCop>
-      <settingsFile>2017.07.30 13:43:46.296</settingsFile>
+      <settingsFile>2017.09.18 10:31:06.141</settingsFile>
       <sourceFile>2017.09.10 20:08:02.896</sourceFile>
       <parser>2017.07.30 13:43:46.385</parser>
       <StyleCop.CSharp.DocumentationRules>2017.07.30 13:43:46.385</StyleCop.CSharp.DocumentationRules>
@@ -791,18 +231,12 @@
       <StyleCop.CSharp.SpacingRules>2017.07.30 13:43:46.385</StyleCop.CSharp.SpacingRules>
       <StyleCop.CSharp.SpacingRules.FilesHashCode>0</StyleCop.CSharp.SpacingRules.FilesHashCode>
     </timestamps>
-    <violations>
-      <violation namespace="StyleCop.CSharp.DocumentationRules" rule="FileMustHaveHeader" ruleCheckId="SA1633">
-        <context>The file has no header, the header Xml is invalid, or the header is not located at the top of the file.</context>
-        <line>1</line>
-        <warning>False</warning>
-      </violation>
-    </violations>
+    <violations />
   </sourcecode>
   <sourcecode name="Startup.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2017.07.30 13:43:46.385</styleCop>
-      <settingsFile>2017.07.30 13:43:46.296</settingsFile>
+      <settingsFile>2017.09.18 10:31:06.141</settingsFile>
       <sourceFile>2017.09.16 20:18:09.832</sourceFile>
       <parser>2017.07.30 13:43:46.385</parser>
       <StyleCop.CSharp.DocumentationRules>2017.07.30 13:43:46.385</StyleCop.CSharp.DocumentationRules>
@@ -820,22 +254,6 @@
       <StyleCop.CSharp.SpacingRules>2017.07.30 13:43:46.385</StyleCop.CSharp.SpacingRules>
       <StyleCop.CSharp.SpacingRules.FilesHashCode>0</StyleCop.CSharp.SpacingRules.FilesHashCode>
     </timestamps>
-    <violations>
-      <violation namespace="StyleCop.CSharp.DocumentationRules" rule="FileMustHaveHeader" ruleCheckId="SA1633">
-        <context>The file has no header, the header Xml is invalid, or the header is not located at the top of the file.</context>
-        <line>1</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ElementsMustBeDocumented" ruleCheckId="SA1600">
-        <context>The class must have a documentation header.</context>
-        <line>7</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ElementsMustBeDocumented" ruleCheckId="SA1600">
-        <context>The method must have a documentation header.</context>
-        <line>9</line>
-        <warning>False</warning>
-      </violation>
-    </violations>
+    <violations />
   </sourcecode>
 </stylecopresultscache>

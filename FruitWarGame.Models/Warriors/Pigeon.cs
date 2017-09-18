@@ -8,7 +8,7 @@
         private const int InitialSpeedPoints = 3;
         private const int InitialPowerPoints = 1;
 
-        public Pigeon(char symbol) : base(InitialSpeedPoints, InitialPowerPoints,symbol)
+        public Pigeon(char symbol) : base(InitialSpeedPoints, InitialPowerPoints, symbol)
         {
         }
     }

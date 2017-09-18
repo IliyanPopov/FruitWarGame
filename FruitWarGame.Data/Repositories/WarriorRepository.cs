@@ -33,6 +33,19 @@
             throw new ArgumentException($"Player with symbol: {symbol} does not exist!");
         }
 
+        public IWarrior GetWarriorByPosition(int positionX, int positionY)
+        {
+            var warrior = this._warriors.FirstOrDefault(w => w.CurrentPosition.Row == positionY &&
+                                                             w.CurrentPosition.Col == positionX);
+
+            if (warrior != null)
+            {
+                return warrior;
+            }
+
+            throw new ArgumentException($"No warrior on board with positionX: {positionX}, positionY: {positionY}");
+        }
+
         IQueryable<IWarrior> IWarriorRepository.GetAll()
         {
             return this._warriors.AsQueryable();
@@ -50,7 +63,7 @@
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return GetEnumerator();
+            return this.GetEnumerator();
         }
     }
 }

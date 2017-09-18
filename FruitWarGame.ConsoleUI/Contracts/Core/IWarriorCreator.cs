@@ -4,7 +4,6 @@
 
     public interface IWarriorCreator
     {
-        IWarrior CreateWarrior(char warriorSymbol, string playerCreationMessage,
-            string availableWarriorsMessage);
+        IWarrior CreateWarrior(char warriorSymbol, string playerCreationMessage, string availableWarriorsMessage);
     }
 }

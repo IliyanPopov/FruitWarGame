@@ -8,7 +8,7 @@
         private const int InitialSpeedPoints = 1;
         private const int InitialPowerPoints = 3;
 
-        public Turtle(char symbol) : base(InitialSpeedPoints, InitialPowerPoints,symbol)
+        public Turtle(char symbol) : base(InitialSpeedPoints, InitialPowerPoints, symbol)
         {
         }
     }

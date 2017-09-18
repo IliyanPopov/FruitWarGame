@@ -68,7 +68,8 @@
             {
                 throw new IndexOutOfRangeException($"Invalid row: {row}");
             }
-            if (col < 0 || col > GlobalConstants.GameGridRowsCount)
+
+            if (col < 0 || col > GlobalConstants.GameGridColsCount)
             {
                 throw new IndexOutOfRangeException($"Invalid col: {col}");
             }
