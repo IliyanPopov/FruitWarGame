@@ -13,6 +13,7 @@
             this._grid = grid;
         }
 
+		// spiral traverse algorithm
         public bool ValidateSpawningPosition(IPosition placableEntity, PlacableEntities entityType, int movesApartFromEachother)
         {
             int direction = 0; // The initial direction is "down"
